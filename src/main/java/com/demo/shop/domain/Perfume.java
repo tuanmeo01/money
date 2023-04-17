@@ -47,8 +47,8 @@ public class Perfume {
 
     @Column(name = "description")
     private String description;
-    
-    @Column(name = "filename")
+
+    @Column(name = "filename",columnDefinition = "text")
     private String filename;
     
     @Column(name = "price")

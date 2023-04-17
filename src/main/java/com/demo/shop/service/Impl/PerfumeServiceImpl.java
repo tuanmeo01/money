@@ -11,6 +11,7 @@ import com.demo.shop.repository.PerfumeRepository;
 import com.demo.shop.repository.projection.PerfumeProjection;
 import graphql.schema.DataFetcher;
 import lombok.RequiredArgsConstructor;
+import org.apache.commons.codec.binary.Base64;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -19,9 +20,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
 
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
+import java.io.*;
 import java.util.List;
 import java.util.UUID;
 import java.util.stream.Collectors;
@@ -97,12 +96,31 @@ public class PerfumeServiceImpl implements PerfumeService {
             } catch (IOException e) {
                 e.printStackTrace();
             }
-            String fileName = UUID.randomUUID().toString() + "." + multipartFile.getOriginalFilename();
-            amazonS3client.putObject(new PutObjectRequest(bucketName, fileName, file));
-            perfume.setFilename(amazonS3client.getUrl(bucketName, fileName).toString());
+//            String fileName = UUID.randomUUID().toString() + "." + multipartFile.getOriginalFilename();
+//            amazonS3client.putObject(new PutObjectRequest(bucketName, fileName, file));
+//            perfume.setFilename(amazonS3client.getUrl(bucketName, fileName).toString());
+////            System.out.println(encodeFileToBase64Binary(file));
+            perfume.setFilename(encodeFileToBase64Binary(file));
             file.delete();
         }
         return perfumeRepository.save(perfume);
+    }
+    private static String encodeFileToBase64Binary(File file){
+        String encodedfile = null;
+        try {
+            FileInputStream fileInputStreamReader = new FileInputStream(file);
+            byte[] bytes = new byte[(int)file.length()];
+            fileInputStreamReader.read(bytes);
+            encodedfile = new String(Base64.encodeBase64(bytes), "UTF-8");
+        } catch (FileNotFoundException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        } catch (IOException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
+
+        return encodedfile;
     }
 
     @Override

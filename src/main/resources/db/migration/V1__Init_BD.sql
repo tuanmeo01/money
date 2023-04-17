@@ -38,7 +38,7 @@ create table perfume
     id                     int8 not null,
     country                varchar(255),
     description            varchar(255),
-    filename               varchar(255),
+    filename               TEXT,
     fragrance_base_notes   varchar(255),
     fragrance_middle_notes varchar(255),
     fragrance_top_notes    varchar(255),

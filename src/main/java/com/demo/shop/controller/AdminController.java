@@ -38,7 +38,7 @@ public class AdminController {
 
     @PostMapping("/add")
     public ResponseEntity<FullPerfumeResponse> addPerfume(@RequestPart(name = "file", required = false) MultipartFile file,
-                                                          @RequestPart("perfume") @Valid PerfumeRequest perfume,
+                                                          @RequestPart("perfume") PerfumeRequest perfume,
                                                           BindingResult bindingResult) {
         return ResponseEntity.ok(perfumeMapper.savePerfume(perfume, file, bindingResult));
     }
