@@ -122,7 +122,7 @@ const AddPerfume: FC = (): ReactElement => {
                             disabled={ispPerfumeLoading}
                         />
                     </Col>
-                    {/* <Col span={12}>
+                    {<Col span={12}>
                         <AddFormInput
                             title={"Brand"}
                             name={"perfumer"}
@@ -130,7 +130,7 @@ const AddPerfume: FC = (): ReactElement => {
                             placeholder={"Enter the brand"}
                             disabled={ispPerfumeLoading}
                         />
-                        <AddFormInput
+                        {/* <AddFormInput
                             title={"Manufacturer country"}
                             name={"country"}
                             error={perfumeErrors.countryError}
@@ -157,13 +157,13 @@ const AddPerfume: FC = (): ReactElement => {
                             error={perfumeErrors.fragranceBaseNotesError}
                             placeholder={"Enter the base notes"}
                             disabled={ispPerfumeLoading}
-                        />
+                        /> */}
                         <Upload name={"file"} onChange={handleUpload} beforeUpload={() => false}>
                             <Button icon={<UploadOutlined />} style={{ marginTop: 22 }}>
                                 Click to Upload
                             </Button>
                         </Upload>
-                    </Col> */}
+                    </Col>}
                 </Row>
                 <IconButton title={"Add"} icon={<PlusSquareFilled />} />
             </Form>
