@@ -132,13 +132,13 @@ const Menu: FC = (): ReactElement => {
                             category={CheckboxCategoryFilter.PERFUMERS}
                             selectedValues={filterParams.perfumers}
                         />
-                        <MenuCheckboxSection
+                        {/* <MenuCheckboxSection
                             title={"Gender"}
                             onChange={onChangeCheckbox}
                             data={gender}
                             category={CheckboxCategoryFilter.GENDERS}
                             selectedValues={filterParams.genders}
-                        />
+                        /> */}
                         <MenuRadioSection title={"Price"} onChange={onChangeRadio} data={price} />
                     </Col>
                     <Col span={18}>

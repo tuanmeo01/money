@@ -13,7 +13,7 @@ type PropsType = {
 
 const DeleteModal: FC<PropsType> = ({ visible, deletePerfumeHandler, handleCancel, perfumeInfo }): ReactElement => {
     return (
-        <Modal title="Delete perfume" visible={visible} onOk={deletePerfumeHandler} onCancel={handleCancel}>
+    <Modal title="Delete perfume" visible={visible} onOk={deletePerfumeHandler} onCancel={handleCancel}>
             <Row>
                 <Col span={12} className={"delete-modal-perfume-image-wrapper"}>
                     <img
