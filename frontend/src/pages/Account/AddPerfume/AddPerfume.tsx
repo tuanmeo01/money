@@ -61,11 +61,9 @@ const AddPerfume: FC = (): ReactElement => {
         const bodyFormData: FormData = new FormData();
         // @ts-ignore
         bodyFormData.append("file", { file });
-        bodyFormData.append(
-            "perfume",
-            new Blob([JSON.stringify({ ...data, perfumeRating: 0 })], { type: "application/json" })
-        );
-
+        console.log(file);
+        bodyFormData.append("perfume", new Blob([JSON.stringify({ ...data })], { type: "application/json" }));
+        console.log(bodyFormData);
         dispatch(addPerfume(bodyFormData));
     };
 
@@ -82,79 +80,79 @@ const AddPerfume: FC = (): ReactElement => {
                         <AddFormInput
                             title={"Tên sản phẩm"}
                             name={"perfumeTitle"}
-                            error={perfumeErrors.perfumeTitleError}
+                            // error={perfumeErrors.perfumeTitleError}
                             placeholder={"Nhập tên sản phẩm"}
                             disabled={ispPerfumeLoading}
                         />
                         <AddFormInput
                             title={"Ngày sản xuất"}
                             name={"year"}
-                            error={perfumeErrors.yearError}
+                            // error={perfumeErrors.yearError}
                             placeholder={"Nhập ngày sản xuất"}
                             disabled={ispPerfumeLoading}
                         />
                         <AddFormInput
                             title={"Kiểu bánh"}
                             name={"type"}
-                            error={perfumeErrors.typeError}
+                            // error={perfumeErrors.typeError}
                             placeholder={"Nhập kiểu bánh"}
                             disabled={ispPerfumeLoading}
                         />
                         <AddFormInput
                             title={"Loại bánh"}
                             name={"perfumeGender"}
-                            error={perfumeErrors.perfumeGenderError}
+                            // error={perfumeErrors.perfumeGenderError}
                             placeholder={"Loại bánh"}
                             disabled={ispPerfumeLoading}
                         />
-                        {/* <AddFormInput
+                        <AddFormInput
                             title={"Heart notes"}
                             name={"fragranceMiddleNotes"}
-                            error={perfumeErrors.fragranceMiddleNotesError}
+                            // error={perfumeErrors.fragranceMiddleNotesError}
                             placeholder={"Enter the heart notes"}
                             disabled={ispPerfumeLoading}
-                        /> */}
+                        />
                         <AddFormInput
                             title={"Giá"}
                             name={"price"}
-                            error={perfumeErrors.priceError}
+                            // error={perfumeErrors.priceError}
                             placeholder={"Nhập giá"}
                             disabled={ispPerfumeLoading}
                         />
                     </Col>
-                    {/* <Col span={12}>
+                    <Col span={12}>
                         <AddFormInput
                             title={"Brand"}
                             name={"perfumer"}
-                            error={perfumeErrors.perfumerError}
+                            // error={perfumeErrors.perfumerError}
                             placeholder={"Enter the brand"}
                             disabled={ispPerfumeLoading}
                         />
                         <AddFormInput
                             title={"Manufacturer country"}
                             name={"country"}
-                            error={perfumeErrors.countryError}
+                            // error={perfumeErrors.countryError}
                             placeholder={"Enter the manufacturer country"}
                             disabled={ispPerfumeLoading}
                         />
                         <AddFormInput
                             title={"Volume"}
                             name={"volume"}
-                            error={perfumeErrors.volumeError}
+                            // error={perfumeErrors.volumeError}
                             placeholder={"Enter the volume"}
                             disabled={ispPerfumeLoading}
                         />
                         <AddFormInput
                             title={"Top notes"}
                             name={"fragranceTopNotes"}
-                            error={perfumeErrors.fragranceTopNotesError}
+                            // error={perfumeErrors.fragranceTopNotesError}
                             placeholder={"Enter the top notes"}
                             disabled={ispPerfumeLoading}
                         />
                         <AddFormInput
                             title={"Base notes"}
                             name={"fragranceBaseNotes"}
-                            error={perfumeErrors.fragranceBaseNotesError}
+                            // error={perfumeErrors.fragranceBaseNotesError}
                             placeholder={"Enter the base notes"}
                             disabled={ispPerfumeLoading}
                         />
@@ -163,7 +161,7 @@ const AddPerfume: FC = (): ReactElement => {
                                 Click to Upload
                             </Button>
                         </Upload>
-                    </Col> */}
+                    </Col>
                 </Row>
                 <IconButton title={"Add"} icon={<PlusSquareFilled />} />
             </Form>
