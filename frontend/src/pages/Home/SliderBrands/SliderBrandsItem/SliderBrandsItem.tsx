@@ -18,7 +18,7 @@ const SliderBrandsItem: FC<PropsType> = ({ brands }): ReactElement => {
     return (
         <Row>
             {brands.map((brand: BrandType, index: number) => (
-                <Col span={4} key={index} className={"slider-brand-item"}>
+                <Col span={6} key={index} className={"slider-brand-item"}>
                     <Link className={"slider-brand-item-link"} to={{ pathname: MENU, state: { id: brand.name } }} />
                     <img style={{ width: "80%" }} src={brand.url} alt={brand.name} />
                 </Col>

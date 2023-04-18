@@ -8,7 +8,7 @@ import "./HomePageTheme.css";
 const HomePageTheme: FC = (): ReactElement => {
     return (
         <div className={"page-theme"}>
-            <Row gutter={32}>
+            {/* <Row gutter={32}>
                 <Col span={12}>
                     <Link to={{ pathname: MENU, state: { id: "female" } }}>
                         <img src="https://i.ibb.co/jMmJs60/Them-Woman-ENG.jpg" alt={"female"} />
@@ -19,7 +19,7 @@ const HomePageTheme: FC = (): ReactElement => {
                         <img src="https://i.ibb.co/mJGKz8c/Them-Man-ENG.jpg" alt={"male"} />
                     </Link>
                 </Col>
-            </Row>
+            </Row> */}
         </div>
     );
 };

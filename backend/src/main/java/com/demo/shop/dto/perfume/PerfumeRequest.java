@@ -2,6 +2,7 @@ package com.demo.shop.dto.perfume;
 
 import lombok.Data;
 import org.hibernate.validator.constraints.Length;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
@@ -10,6 +11,7 @@ import javax.validation.constraints.NotNull;
 public class PerfumeRequest {
 
     private Long id;
+    private MultipartFile file;
     private String filename;
 
 //    @NotBlank(message = "Fill in the input field")

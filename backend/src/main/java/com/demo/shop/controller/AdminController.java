@@ -16,6 +16,7 @@ import lombok.RequiredArgsConstructor;
 
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.validation.BindingResult;
@@ -36,18 +37,22 @@ public class AdminController {
     private final OrderMapper orderMapper;
     private final GraphQLProvider graphQLProvider;
 
-    @PostMapping("/add")
-    public ResponseEntity<FullPerfumeResponse> addPerfume(@RequestPart(name = "file", required = false) MultipartFile file,
-                                                          @RequestPart("perfume") PerfumeRequest perfume,
+    @PostMapping(path = "/add",
+            consumes = {MediaType.MULTIPART_FORM_DATA_VALUE,
+                    MediaType.APPLICATION_JSON_VALUE},
+            produces = {MediaType.APPLICATION_JSON_VALUE})
+    public ResponseEntity<FullPerfumeResponse> addPerfume(@Valid @ModelAttribute @RequestBody PerfumeRequest perfume,
                                                           BindingResult bindingResult) {
-        return ResponseEntity.ok(perfumeMapper.savePerfume(perfume, file, bindingResult));
+        return ResponseEntity.ok(perfumeMapper.savePerfume(perfume, perfume.getFile(), bindingResult));
     }
 
-    @PostMapping("/edit")
-    public ResponseEntity<FullPerfumeResponse> updatePerfume(@RequestPart(name = "file", required = false) MultipartFile file,
-                                                             @RequestPart("perfume") @Valid PerfumeRequest perfume,
+    @PostMapping(path = "/edit",
+            consumes = {MediaType.MULTIPART_FORM_DATA_VALUE,
+                    MediaType.APPLICATION_JSON_VALUE},
+            produces = {MediaType.APPLICATION_JSON_VALUE})
+    public ResponseEntity<FullPerfumeResponse> updatePerfume(@Valid @ModelAttribute @RequestBody PerfumeRequest perfume,
                                                              BindingResult bindingResult) {
-        return ResponseEntity.ok(perfumeMapper.savePerfume(perfume, file, bindingResult));
+        return ResponseEntity.ok(perfumeMapper.savePerfume(perfume, perfume.getFile(), bindingResult));
     }
 
     @DeleteMapping("/delete/{perfumeId}")

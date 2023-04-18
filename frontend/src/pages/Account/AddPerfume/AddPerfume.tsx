@@ -16,6 +16,7 @@ import ContentTitle from "../../../components/ContentTitle/ContentTitle";
 import AddFormInput from "./AddFormInput";
 import AddFormSelect from "./AddFormSelect";
 import IconButton from "../../../components/IconButton/IconButton";
+import { log } from "console";
 
 type AddPerfumeData = {
     perfumeTitle: string;
@@ -65,8 +66,10 @@ const AddPerfume: FC = (): ReactElement => {
             "perfume",
             new Blob([JSON.stringify({ ...data, perfumeRating: 0 })], { type: "application/json" })
         );
+        console.log(bodyFormData);
 
         dispatch(addPerfume(bodyFormData));
+        // log cai body form data nay ma no k ra cgi
     };
 
     const handleUpload = ({ file }: UploadChangeParam<any>): void => {
@@ -107,13 +110,7 @@ const AddPerfume: FC = (): ReactElement => {
                             placeholder={"Loại bánh"}
                             disabled={ispPerfumeLoading}
                         />
-                        {/* <AddFormInput
-                            title={"Heart notes"}
-                            name={"fragranceMiddleNotes"}
-                            error={perfumeErrors.fragranceMiddleNotesError}
-                            placeholder={"Enter the heart notes"}
-                            disabled={ispPerfumeLoading}
-                        /> */}
+
                         <AddFormInput
                             title={"Giá"}
                             name={"price"}
@@ -122,48 +119,23 @@ const AddPerfume: FC = (): ReactElement => {
                             disabled={ispPerfumeLoading}
                         />
                     </Col>
-                    {<Col span={12}>
-                        <AddFormInput
-                            title={"Brand"}
-                            name={"perfumer"}
-                            error={perfumeErrors.perfumerError}
-                            placeholder={"Enter the brand"}
-                            disabled={ispPerfumeLoading}
-                        />
-                        {/* <AddFormInput
-                            title={"Manufacturer country"}
-                            name={"country"}
-                            error={perfumeErrors.countryError}
-                            placeholder={"Enter the manufacturer country"}
-                            disabled={ispPerfumeLoading}
-                        />
-                        <AddFormInput
-                            title={"Volume"}
-                            name={"volume"}
-                            error={perfumeErrors.volumeError}
-                            placeholder={"Enter the volume"}
-                            disabled={ispPerfumeLoading}
-                        />
-                        <AddFormInput
-                            title={"Top notes"}
-                            name={"fragranceTopNotes"}
-                            error={perfumeErrors.fragranceTopNotesError}
-                            placeholder={"Enter the top notes"}
-                            disabled={ispPerfumeLoading}
-                        />
-                        <AddFormInput
-                            title={"Base notes"}
-                            name={"fragranceBaseNotes"}
-                            error={perfumeErrors.fragranceBaseNotesError}
-                            placeholder={"Enter the base notes"}
-                            disabled={ispPerfumeLoading}
-                        /> */}
-                        <Upload name={"file"} onChange={handleUpload} beforeUpload={() => false}>
-                            <Button icon={<UploadOutlined />} style={{ marginTop: 22 }}>
-                                Click to Upload
-                            </Button>
-                        </Upload>
-                    </Col>}
+                    {
+                        <Col span={12}>
+                            <AddFormInput
+                                title={"Brand"}
+                                name={"perfumer"}
+                                error={perfumeErrors.perfumerError}
+                                placeholder={"Enter the brand"}
+                                disabled={ispPerfumeLoading}
+                            />
+                            // button upload ảnh
+                            <Upload name={"file"} onChange={handleUpload} beforeUpload={() => false}>
+                                <Button icon={<UploadOutlined />} style={{ marginTop: 22 }}>
+                                    Click to Upload
+                                </Button>
+                            </Upload>
+                        </Col>
+                    }
                 </Row>
                 <IconButton title={"Add"} icon={<PlusSquareFilled />} />
             </Form>
