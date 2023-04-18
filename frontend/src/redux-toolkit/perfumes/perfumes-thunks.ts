@@ -57,10 +57,13 @@ export const fetchPerfumesByInputText = createAsyncThunk<HeaderResponse<PerfumeR
 );
 
 // GraphQL thunks
-export const fetchPerfumesByQuery = createAsyncThunk<Array<PerfumeResponse>>("perfumes/fetchPerfumesByQuery", async () => {
-    const response = await RequestService.post(PERFUMES_GRAPHQL_PERFUMES, { query: getAllPerfumesByQuery });
-    return response.data.data.perfumes;
-});
+export const fetchPerfumesByQuery = createAsyncThunk<Array<PerfumeResponse>>(
+    "perfumes/fetchPerfumesByQuery",
+    async () => {
+        const response = await RequestService.post(PERFUMES_GRAPHQL_PERFUMES, { query: getAllPerfumesByQuery });
+        return response.data.data.perfumes;
+    }
+);
 
 export const fetchPerfumesByIdsQuery = createAsyncThunk<Array<PerfumeResponse>, Array<number>>(
     "perfumes/fetchPerfumesByIdsQuery",

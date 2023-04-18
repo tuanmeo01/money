@@ -53,12 +53,12 @@ const EditPerfume: FC = (): ReactElement => {
             dispatch(resetAdminState(LoadingStatus.LOADING));
         };
     }, []);
-    
+
     useEffect(() => {
         if (perfumeData) {
             form.setFieldsValue(perfumeData);
         }
-    }, [perfumeData])
+    }, [perfumeData]);
 
     useEffect(() => {
         if (isPerfumeEdited) {
@@ -89,97 +89,38 @@ const EditPerfume: FC = (): ReactElement => {
 
     return (
         <div>
-            <ContentTitle title={"Edit perfume"} titleLevel={4} icon={<EditOutlined />} />
+            <ContentTitle title={"Chỉnh sửa sản phẩm"} titleLevel={4} icon={<EditOutlined />} />
             <Form onFinish={onFormSubmit} form={form}>
                 <Row gutter={32}>
                     <Col span={12}>
                         <FormInput
-                            title={"Perfume title"}
+                            title={"Tên"}
                             titleSpan={6}
                             wrapperSpan={18}
                             name={"perfumeTitle"}
                             error={errors.perfumeTitleError}
                             disabled={isLoading}
-                            placeholder={"Perfume title"}
+                            placeholder={"Tên"}
                         />
                         <FormInput
-                            title={"Brand"}
+                            title={"Nhãn hiệu"}
                             titleSpan={6}
                             wrapperSpan={18}
                             name={"perfumer"}
                             error={errors.perfumerError}
                             disabled={isLoading}
-                            placeholder={"Brand"}
+                            placeholder={"Nhãn hiệu"}
                         />
                         <FormInput
-                            title={"Release year"}
+                            title={"Ngày sản xuất"}
                             titleSpan={6}
                             wrapperSpan={18}
                             name={"year"}
                             error={errors.yearError}
                             disabled={isLoading}
-                            placeholder={"Release year"}
+                            placeholder={"Ngày sản xuất"}
                         />
-                        <FormInput
-                            title={"Country"}
-                            titleSpan={6}
-                            wrapperSpan={18}
-                            name={"country"}
-                            error={errors.countryError}
-                            disabled={isLoading}
-                            placeholder={"Country"}
-                        />
-                        <EditPerfumeSelect
-                            title={"Perfume type"}
-                            name={"type"}
-                            placeholder={"Perfume type"}
-                            error={errors.typeError}
-                            disabled={isLoading}
-                            values={["Eau de Parfum", "Eau de Toilette"]}
-                        />
-                        <EditPerfumeSelect
-                            title={"Gender"}
-                            name={"perfumeGender"}
-                            placeholder={"Gender"}
-                            disabled={isLoading}
-                            values={["male", "female"]}
-                        />
-                        <FormInput
-                            title={"Volume"}
-                            titleSpan={6}
-                            wrapperSpan={18}
-                            name={"volume"}
-                            error={errors.volumeError}
-                            disabled={isLoading}
-                            placeholder={"Volume"}
-                        />
-                        <FormInput
-                            title={"Top notes"}
-                            titleSpan={6}
-                            wrapperSpan={18}
-                            name={"fragranceTopNotes"}
-                            error={errors.fragranceTopNotesError}
-                            disabled={isLoading}
-                            placeholder={"Top notes"}
-                        />
-                        <FormInput
-                            title={"Heart notes"}
-                            titleSpan={6}
-                            wrapperSpan={18}
-                            name={"fragranceMiddleNotes"}
-                            error={errors.fragranceMiddleNotesError}
-                            disabled={isLoading}
-                            placeholder={"Heart notes"}
-                        />
-                        <FormInput
-                            title={"Base notes"}
-                            titleSpan={6}
-                            wrapperSpan={18}
-                            name={"fragranceBaseNotes"}
-                            error={errors.fragranceBaseNotesError}
-                            disabled={isLoading}
-                            placeholder={"Base notes"}
-                        />
+
                         <FormInput
                             title={"Price"}
                             titleSpan={6}
@@ -189,8 +130,6 @@ const EditPerfume: FC = (): ReactElement => {
                             disabled={isLoading}
                             placeholder={"Price"}
                         />
-                    </Col>
-                    <Col span={12}>
                         <Upload name={"file"} onChange={handleUpload} beforeUpload={() => false}>
                             <Button icon={<UploadOutlined />}>Click to Upload</Button>
                         </Upload>
