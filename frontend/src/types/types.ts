@@ -4,11 +4,18 @@ export interface PerfumeResponse {
     perfumer: string;
     price: number;
     perfumeRating: number;
-    filename: string;
     reviewsCount: number;
     volume: string;
+    filename: string;
 }
-
+export interface AddProduct {
+    perfumeTitle: string;
+    year: string;
+    type: string;
+    perfumeGender: string;
+    price: string;
+    file: string;
+}
 export interface FullPerfumeResponse extends PerfumeResponse {
     year: number;
     country: string;

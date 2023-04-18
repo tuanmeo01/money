@@ -8,7 +8,6 @@ import { PerfumeResponse } from "../../types/types";
 import { ACCOUNT_ADMIN_DELETE, ACCOUNT_ADMIN_PERFUMES, PRODUCT } from "../../constants/routeConstants";
 import { useCart } from "../../hooks/useCart";
 import "./PerfumeCard.css";
-
 type PropsType = {
     perfume: PerfumeResponse;
     colSpan: number;
