@@ -100,7 +100,7 @@ public class PerfumeServiceImpl implements PerfumeService {
 //            amazonS3client.putObject(new PutObjectRequest(bucketName, fileName, file));
 //            perfume.setFilename(amazonS3client.getUrl(bucketName, fileName).toString());
 ////            System.out.println(encodeFileToBase64Binary(file));
-            perfume.setFilename(encodeFileToBase64Binary(file));
+            perfume.setFilename("data:image/png;base64," + encodeFileToBase64Binary(file));
             file.delete();
         }
         return perfumeRepository.save(perfume);
