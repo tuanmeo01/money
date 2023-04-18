@@ -8,7 +8,7 @@ import { resetPerfumesState } from "../../../redux-toolkit/perfumes/perfumes-sli
 import PerfumeCardsSliderItem from "./PerfumeCardsSliderItem/PerfumeCardsSliderItem";
 import "./PerfumeCardsSlider.css";
 
-export const perfumesIds = [26, 43, 46, 106, 34, 76, 82, 85, 27, 39, 79, 86];
+export const perfumesIds = [117, 118, 119, 120, 121, 122, 123, 124, 125, 126, 127, 128];
 
 const PerfumeCardsSlider: FC = (): ReactElement => {
     const dispatch = useDispatch();
@@ -29,7 +29,7 @@ const PerfumeCardsSlider: FC = (): ReactElement => {
             <Typography.Title level={3} className={"perfume-cards-slider-title"}>
                 Đề xuất
             </Typography.Title>
-            <Carousel>
+            <Carousel autoplay>
                 <PerfumeCardsSliderItem perfumes={perfumes.slice(0, 4)} />
                 <PerfumeCardsSliderItem perfumes={perfumes.slice(4, 8)} />
                 <PerfumeCardsSliderItem perfumes={perfumes.slice(8, 12)} />
