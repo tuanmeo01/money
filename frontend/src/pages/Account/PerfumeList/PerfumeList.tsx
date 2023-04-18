@@ -43,8 +43,8 @@ const PerfumeList: FC = (): ReactElement => {
         if (isPerfumeDeleted) {
             window.scrollTo(0, 0);
             notification.success({
-                message: "Perfume deleted",
-                description: "Perfume successfully deleted!"
+                message: "Xoá sản phẩm",
+                description: "Thành công"
             });
         }
     }, [isPerfumeDeleted]);
