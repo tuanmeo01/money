@@ -12,8 +12,8 @@ export const gender: Array<{ name: string }> = [{ name: "male" }, { name: "femal
 
 export const price: Array<PerfumePrice> = [
     { id: 1, name: "any", array: [1, 9999] },
-    { id: 2, name: "15 - 25 $", array: [15, 25] },
-    { id: 3, name: "25 - 40 $", array: [25, 40] },
-    { id: 4, name: "40 - 90 $", array: [40, 90] },
-    { id: 5, name: "90 - 175+ $", array: [90, 250] }
+    { id: 2, name: "100.000đ - 200.000đ", array: [100, 200] },
+    { id: 3, name: "200.000đ - 300.000đ", array: [200, 300] },
+    { id: 4, name: "300.000đ - 400.000đ", array: [300, 400] },
+    { id: 5, name: "400.000đ- 500.000+đ", array: [400, 500] }
 ];

@@ -24,19 +24,21 @@ const Contacts: FC = (): ReactElement => {
                         <Typography.Text>ptrangcake@gmail.com</Typography.Text>
                     </div>
                     <div style={{ marginTop: 16 }}>
-                        <Typography.Text strong>Working time</Typography.Text>
+                        <Typography.Text strong>Giờ làm việc</Typography.Text>
                     </div>
                     <div>
                         <Typography.Text>
-                            The online store is open from 08:00 to 20:00 without breaks and weekends. <br />
-                            Online orders are accepted around the clock.
+                            Chúng tôi mở của từ 8h00 đến 18h00 hàng ngày, không kể cuối tuần. <br />
+                            Đơn hàng online chúng tôi nhận 24/24h.
                         </Typography.Text>
                     </div>
                     <div style={{ marginTop: 16 }}>
-                        <Typography.Text strong>Delivery</Typography.Text>
+                        <Typography.Text strong>Vận chuyển</Typography.Text>
                     </div>
                     <div>
-                        <Typography.Text>Delivery of orders come through courier service.</Typography.Text>
+                        <Typography.Text>
+                            Chúng tôi sử dụng dịch vụ vận chuyển hoả tốc, tốt nhất hiện nay.
+                        </Typography.Text>
                     </div>
                 </Col>
             </Row>
