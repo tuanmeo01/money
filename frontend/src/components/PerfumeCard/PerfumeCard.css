@@ -12,7 +12,7 @@
 .perfume-card-rate {
     margin-bottom: 8px;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
 }
 
 .perfume-card-price {
