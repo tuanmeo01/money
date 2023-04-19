@@ -1,6 +1,6 @@
 import React, { FC, ReactElement } from "react";
 import { Select } from "antd";
-import {SearchPerfume} from "../../types/types";
+import { SearchPerfume } from "../../types/types";
 
 const searchByData = [
     { label: "Brand", value: SearchPerfume.BRAND },
@@ -14,13 +14,14 @@ type PropsType = {
 
 const SelectSearchData: FC<PropsType> = ({ handleChangeSelect }): ReactElement => {
     return (
-        <Select defaultValue={SearchPerfume.BRAND} onChange={handleChangeSelect} style={{ width: 250 }}>
-            {searchByData.map((value, index) => (
-                <Select.Option key={index} value={value.value}>
-                    {value.label}
-                </Select.Option>
-            ))}
-        </Select>
+        // <Select defaultValue={SearchPerfume.BRAND} onChange={handleChangeSelect} style={{ width: 250 }}>
+        //     {searchByData.map((value, index) => (
+        //         <Select.Option key={index} value={value.value}>
+        //             {value.label}
+        //         </Select.Option>
+        //     ))}
+        // </Select>
+        <></>
     );
 };
 

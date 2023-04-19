@@ -8,10 +8,10 @@ export const perfumer: Array<{ name: string }> = [
     { name: "Cake5" }
 ];
 
-export const gender: Array<{ name: string }> = [{ name: "male" }, { name: "female" }];
+export const gender: Array<{ name: string }> = [{ name: "Kem" }, { name: "Xốp" }];
 
 export const price: Array<PerfumePrice> = [
-    { id: 1, name: "any", array: [1, 9999] },
+    { id: 1, name: "Tất cả", array: [1, 9999] },
     { id: 2, name: "100.000đ - 200.000đ", array: [100, 200] },
     { id: 3, name: "200.000đ - 300.000đ", array: [200, 300] },
     { id: 4, name: "300.000đ - 400.000đ", array: [300, 400] },

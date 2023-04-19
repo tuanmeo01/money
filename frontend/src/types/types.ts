@@ -191,6 +191,7 @@ export interface FilterParamsType {
     prices: Array<number>;
     currentPage?: number;
     sortByPrice?: boolean;
+    type: Array<string>;
 }
 
 export interface PerfumePrice {

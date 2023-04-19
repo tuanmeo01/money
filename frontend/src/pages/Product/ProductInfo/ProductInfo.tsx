@@ -49,22 +49,18 @@ const ProductInfo: FC<PropsType> = ({ perfume, reviewsLength, addToCart }): Reac
                 <Divider />
                 <Row>
                     <Col span={8}>
-                        <Description title={"Gender:"} />
-                        <Description title={"Volume:"} />
-                        <Description title={"Release year:"} />
-                        <Description title={"Manufacturer country:"} />
-                        <Description title={"Top notes:"} />
-                        <Description title={"Heart notes:"} />
-                        <Description title={"Base notes:"} />
+                        <Description title={"Tên bánh:"} />
+                        <Description title={"Giá:"} />
+                        <Description title={"Chủ đề:"} />
+                        <Description title={"Mô tả :"} />
+                        <Description title={"Loại bánh:"} />
                     </Col>
                     <Col span={16}>
+                        <Description title={perfume?.perfumeTitle} />
+                        <Description title={perfume?.price + ".000đ"} />
+                        <Description title={perfume?.type} />
                         <Description title={perfume?.perfumeGender} />
-                        <Description title={`${perfume?.volume} ml.`} />
                         <Description title={perfume?.year} />
-                        <Description title={perfume?.country} />
-                        <Description title={perfume?.fragranceTopNotes} />
-                        <Description title={perfume?.fragranceMiddleNotes} />
-                        <Description title={perfume?.fragranceBaseNotes} />
                     </Col>
                 </Row>
             </Col>

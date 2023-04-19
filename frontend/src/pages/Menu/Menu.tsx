@@ -33,7 +33,8 @@ const Menu: FC = (): ReactElement => {
     const [filterParams, setFilterParams] = useState<FilterParamsType>({
         perfumers: [],
         genders: [],
-        prices: [1, 999]
+        prices: [1, 999],
+        type: []
     });
     const [sortByPrice, setSortByPrice] = useState<boolean>(false);
     const { currentPage, totalElements, handleChangePagination, resetPagination } = usePagination();
@@ -126,19 +127,19 @@ const Menu: FC = (): ReactElement => {
                 <Row gutter={32}>
                     <Col span={6}>
                         <MenuCheckboxSection
-                            title={"Brand"}
+                            title={"Chủ đề"}
                             onChange={onChangeCheckbox}
                             data={perfumer}
                             category={CheckboxCategoryFilter.PERFUMERS}
                             selectedValues={filterParams.perfumers}
                         />
-                        {/* <MenuCheckboxSection
-                            title={"Gender"}
+                        <MenuCheckboxSection
+                            title={"Loại bánh"}
                             onChange={onChangeCheckbox}
                             data={gender}
                             category={CheckboxCategoryFilter.GENDERS}
                             selectedValues={filterParams.genders}
-                        /> */}
+                        />
                         <MenuRadioSection title={"Price"} onChange={onChangeRadio} data={price} />
                     </Col>
                     <Col span={18}>
