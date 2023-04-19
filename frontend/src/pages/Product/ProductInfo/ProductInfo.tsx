@@ -37,12 +37,12 @@ const ProductInfo: FC<PropsType> = ({ perfume, reviewsLength, addToCart }): Reac
                 <Row style={{ marginTop: 16 }}>
                     <Col span={5}>
                         <Space align={"baseline"}>
-                            <Typography.Text>${perfume?.price}.00</Typography.Text>
+                            <Typography.Text>{perfume?.price}.000 đ</Typography.Text>
                         </Space>
                     </Col>
                     <Col span={4}>
                         <Button icon={<ShoppingCartOutlined />} onClick={addToCart}>
-                            Add to cart
+                            Thêm vào giỏ hàng
                         </Button>
                     </Col>
                 </Row>

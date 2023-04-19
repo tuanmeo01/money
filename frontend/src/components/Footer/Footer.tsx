@@ -10,7 +10,7 @@ const Footer: FC = (): ReactElement => {
             <Row>
                 <Col span={12}>
                     <Typography.Title level={3}>Cake shop</Typography.Title>
-                    <Typography.Text>099999</Typography.Text>
+                    <Typography.Text>0846696888</Typography.Text>
                     <Typography.Text className={"mt-12"}>
                         from 08:00 to 20:00 without breaks and weekends
                     </Typography.Text>

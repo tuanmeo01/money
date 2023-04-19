@@ -40,7 +40,7 @@ const PerfumeCard: FC<PropsType> = ({ perfume, colSpan, edit, onOpenDelete }): R
                               ]
                             : [
                                   <Button icon={<ShoppingCartOutlined />} onClick={onClickAddToCart}>
-                                      Add to cart
+                                      Thêm vào giỏ hàng
                                   </Button>
                               ]
                     }
@@ -50,7 +50,7 @@ const PerfumeCard: FC<PropsType> = ({ perfume, colSpan, edit, onOpenDelete }): R
                         <Typography.Text>{perfume.reviewsCount} reviews</Typography.Text>
                     </div>
                     <Meta title={perfume.perfumeTitle} description={perfume.perfumer} style={{ textAlign: "center" }} />
-                    <Typography.Text className={"perfume-card-price"}>${perfume.price}.00</Typography.Text>
+                    <Typography.Text className={"perfume-card-price"}>{perfume.price}.000 đ</Typography.Text>
                 </Card>
             </Link>
         </Col>

@@ -12,16 +12,16 @@ const Contacts: FC = (): ReactElement => {
 
     return (
         <ContentWrapper>
-            <ContentTitle icon={<InfoCircleOutlined />} title={"Contacts"} />
+            <ContentTitle icon={<InfoCircleOutlined />} title={"Thông tin liên hệ"} />
             <Row gutter={32}>
                 <Col span={12}>
                     <div>
-                        <Typography.Text strong>{"Mobile: "}</Typography.Text>
-                        <Typography.Text>0999999</Typography.Text>
+                        <Typography.Text strong>{"Điện thoại: "}</Typography.Text>
+                        <Typography.Text>0846696888</Typography.Text>
                     </div>
                     <div>
                         <Typography.Text strong>{"E-mail: "}</Typography.Text>
-                        <Typography.Text>tuan@gmail.com</Typography.Text>
+                        <Typography.Text>ptrangcake@gmail.com</Typography.Text>
                     </div>
                     <div style={{ marginTop: 16 }}>
                         <Typography.Text strong>Working time</Typography.Text>

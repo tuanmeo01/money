@@ -97,11 +97,11 @@ const AddPerfume: FC = (): ReactElement => {
                     />
                 </div>
                 <div>
-                    <label htmlFor="year">Ngày sản xuất</label>
+                    <label htmlFor="year">Ngày ra mắt</label>
                     <input type="text" id="year" name="year" value={product.year} onChange={handleInputChange} />
                 </div>
                 <div>
-                    <label htmlFor="type">Nhãn hiệu</label>
+                    <label htmlFor="type">Loại bánh</label>
                     <input type="text" id="type" name="type" value={product.type} onChange={handleInputChange} />
                 </div>
                 <div>
@@ -115,11 +115,11 @@ const AddPerfume: FC = (): ReactElement => {
                     />
                 </div>
                 <div>
-                    <label htmlFor="price">Price:</label>
+                    <label htmlFor="price">Giá:</label>
                     <input type="text" id="price" name="price" value={product.price} onChange={handleInputChange} />
                 </div>
                 <div>
-                    <label htmlFor="image">Image:</label>
+                    <label htmlFor="image">Hình ảnh:</label>
                     <input type="file" id="image" name="image" accept="image/*" onChange={handleImageChange} />
                 </div>
                 <button type="submit">Save</button>

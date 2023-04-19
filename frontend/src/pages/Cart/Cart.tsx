@@ -78,7 +78,7 @@ const Cart: FC = (): ReactElement => {
                         {perfumes.length === 0 ? (
                             <Col span={24}>
                                 <Typography.Title level={3} style={{ textAlign: "center" }}>
-                                    Cart is empty
+                                    Giỏ hàng trống
                                 </Typography.Title>
                             </Col>
                         ) : (
