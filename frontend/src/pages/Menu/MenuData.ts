@@ -1,6 +1,6 @@
 import { PerfumePrice } from "../../types/types";
 
-export const perfumer: Array<{ name: string }> = [
+export const perfumeTitle: Array<{ name: string }> = [
     { name: "Cake1" },
     { name: "Cake2" },
     { name: "Cake3" },

@@ -16,13 +16,14 @@ import SelectSearchData from "../../components/SelectSearchData/SelectSearchData
 import InputSearch from "../../components/InputSearch/InputSearch";
 import Spinner from "../../components/Spinner/Spinner";
 import { MAX_PAGE_VALUE, usePagination } from "../../hooks/usePagination";
-import { gender, perfumer, price } from "./MenuData";
+import { gender, perfumeTitle, price } from "./MenuData";
 import { useSearch } from "../../hooks/useSearch";
 import "./Menu.css";
 
 export enum CheckboxCategoryFilter {
     PERFUMERS = "PERFUMERS",
-    GENDERS = "GENDERS"
+    GENDERS = "GENDERS",
+    PERFUMETITLE = "PERFUMETITLE"
 }
 
 const Menu: FC = (): ReactElement => {
@@ -32,6 +33,7 @@ const Menu: FC = (): ReactElement => {
     const location = useLocation<{ id: string }>();
     const [filterParams, setFilterParams] = useState<FilterParamsType>({
         perfumers: [],
+        perfumeTitle: [],
         genders: [],
         prices: [1, 999],
         type: []
@@ -59,12 +61,15 @@ const Menu: FC = (): ReactElement => {
             dispatch(
                 fetchPerfumesByFilterParams({
                     ...filterParams,
-                    perfumers: [...filterParams.perfumers, perfumeData],
+                    perfumeTitle: [...filterParams.perfumeTitle, perfumeData],
                     sortByPrice,
                     currentPage: 0
                 })
             );
-            setFilterParams((prevState) => ({ ...prevState, perfumers: [...prevState.perfumers, perfumeData] }));
+            setFilterParams((prevState) => ({
+                ...prevState,
+                perfumeTitle: [...prevState.perfumeTitle, perfumeData]
+            }));
         }
         window.scrollTo(0, 0);
 
@@ -80,7 +85,7 @@ const Menu: FC = (): ReactElement => {
     const onChangeCheckbox = (checkedValues: CheckboxValueType[], category: CheckboxCategoryFilter): void => {
         if (CheckboxCategoryFilter.PERFUMERS === category) {
             setFilterParams((prevState) => {
-                const filter = { ...prevState, perfumers: [...(checkedValues as string[])] };
+                const filter = { ...prevState, perfumeTitle: [...(checkedValues as string[])] };
                 dispatch(fetchPerfumesByFilterParams({ ...filter, sortByPrice, currentPage: 0 }));
                 return filter;
             });
@@ -91,6 +96,7 @@ const Menu: FC = (): ReactElement => {
                 return filter;
             });
         }
+
         resetFields();
     };
 
@@ -123,24 +129,25 @@ const Menu: FC = (): ReactElement => {
     return (
         <Layout>
             <Layout.Content className={"login-content"}>
-                <Typography.Title level={2}>Perfumes</Typography.Title>
+                <Typography.Title level={2}>Cakes</Typography.Title>
                 <Row gutter={32}>
                     <Col span={6}>
-                        <MenuCheckboxSection
+                        {/* <MenuCheckboxSection
                             title={"Chủ đề"}
                             onChange={onChangeCheckbox}
-                            data={perfumer}
+                            data={perfumeTitle}
                             category={CheckboxCategoryFilter.PERFUMERS}
-                            selectedValues={filterParams.perfumers}
-                        />
-                        <MenuCheckboxSection
+                            selectedValues={filterParams.perfumeTitle}
+                        /> */}
+
+                        {/* <MenuCheckboxSection
                             title={"Loại bánh"}
                             onChange={onChangeCheckbox}
                             data={gender}
                             category={CheckboxCategoryFilter.GENDERS}
                             selectedValues={filterParams.genders}
-                        />
-                        <MenuRadioSection title={"Price"} onChange={onChangeRadio} data={price} />
+                        /> */}
+                        <MenuRadioSection title={"Giá"} onChange={onChangeRadio} data={price} />
                     </Col>
                     <Col span={18}>
                         <Row>

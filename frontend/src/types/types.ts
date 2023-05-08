@@ -187,6 +187,7 @@ export interface AuthErrors {
 
 export interface FilterParamsType {
     perfumers: Array<string>;
+    perfumeTitle: Array<string>;
     genders: Array<string>;
     prices: Array<number>;
     currentPage?: number;
@@ -216,5 +217,5 @@ export enum LoadingStatus {
 export enum SearchPerfume {
     BRAND = "BRAND",
     PERFUME_TITLE = "PERFUME_TITLE",
-    COUNTRY = "COUNTRY"
+    TYPE = "TYPE"
 }
