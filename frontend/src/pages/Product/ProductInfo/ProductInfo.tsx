@@ -60,7 +60,7 @@ const ProductInfo: FC<PropsType> = ({ perfume, reviewsLength, addToCart }): Reac
                         <Description title={perfume?.price + ".000đ"} />
                         <Description title={perfume?.type} />
                         <Description title={perfume?.perfumeGender} />
-                        <Description title={perfume?.year} />
+                        <Description title={perfume?.country || perfume?.year} />
                     </Col>
                 </Row>
             </Col>

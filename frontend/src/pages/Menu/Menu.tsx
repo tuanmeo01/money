@@ -1,24 +1,23 @@
-import React, { FC, ReactElement, useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
 import { Col, Layout, Pagination, RadioChangeEvent, Row, Typography } from "antd";
 import { CheckboxValueType } from "antd/lib/checkbox/Group";
+import { FC, ReactElement, useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { useLocation } from "react-router-dom";
 
-import MenuCheckboxSection from "./MenuSection/MenuCheckboxSection";
-import { selectIsPerfumesLoading, selectPerfumes } from "../../redux-toolkit/perfumes/perfumes-selector";
-import { FilterParamsType } from "../../types/types";
-import { fetchPerfumesByFilterParams, fetchPerfumesByInputText } from "../../redux-toolkit/perfumes/perfumes-thunks";
-import { resetPerfumesState } from "../../redux-toolkit/perfumes/perfumes-slice";
-import MenuRadioSection from "./MenuSection/MenuRadioSection";
-import MenuSorter from "./MenuSorter/MenuSorter";
-import PerfumeCard from "../../components/PerfumeCard/PerfumeCard";
-import SelectSearchData from "../../components/SelectSearchData/SelectSearchData";
 import InputSearch from "../../components/InputSearch/InputSearch";
+import PerfumeCardNoDelete from "../../components/PerfumeCard/PerfumerCardNoDelete";
+import SelectSearchData from "../../components/SelectSearchData/SelectSearchData";
 import Spinner from "../../components/Spinner/Spinner";
 import { MAX_PAGE_VALUE, usePagination } from "../../hooks/usePagination";
-import { gender, perfumeTitle, price } from "./MenuData";
 import { useSearch } from "../../hooks/useSearch";
+import { selectIsPerfumesLoading, selectPerfumes } from "../../redux-toolkit/perfumes/perfumes-selector";
+import { resetPerfumesState } from "../../redux-toolkit/perfumes/perfumes-slice";
+import { fetchPerfumesByFilterParams, fetchPerfumesByInputText } from "../../redux-toolkit/perfumes/perfumes-thunks";
+import { FilterParamsType } from "../../types/types";
 import "./Menu.css";
+import { price } from "./MenuData";
+import MenuRadioSection from "./MenuSection/MenuRadioSection";
+import MenuSorter from "./MenuSorter/MenuSorter";
 
 export enum CheckboxCategoryFilter {
     PERFUMERS = "PERFUMERS",
@@ -177,7 +176,7 @@ const Menu: FC = (): ReactElement => {
                                 <Spinner />
                             ) : (
                                 perfumes.map((perfume) => (
-                                    <PerfumeCard key={perfume.id} perfume={perfume} colSpan={8} />
+                                    <PerfumeCardNoDelete key={perfume.id} perfume={perfume} colSpan={8} />
                                 ))
                             )}
                         </Row>

@@ -25,6 +25,7 @@ const AddPerfume: FC = (): ReactElement => {
     const [product, setProduct] = useState<AddProduct>({
         perfumeTitle: "",
         year: "",
+        country: "",
         type: "",
         perfumeGender: "",
         price: "",
@@ -47,7 +48,7 @@ const AddPerfume: FC = (): ReactElement => {
         event.preventDefault();
         const formData = new FormData();
         formData.append("perfumeTitle", product.perfumeTitle);
-        formData.append("year", product.year);
+        formData.append("country", product.country);
         formData.append("type", product.type);
         formData.append("perfumeGender", product.perfumeGender);
         formData.append("price", product.price);
@@ -73,6 +74,7 @@ const AddPerfume: FC = (): ReactElement => {
         setProduct({
             perfumeTitle: "",
             year: "",
+            country: "",
             type: "",
             perfumeGender: "",
             price: "",
@@ -140,14 +142,14 @@ const AddPerfume: FC = (): ReactElement => {
                     />
                 </div>
                 <div className="form-group">
-                    <label htmlFor="year" className="form-label">
+                    <label htmlFor="country" className="form-label">
                         Loại bánh
                     </label>
                     <input
                         type="text"
-                        id="year"
-                        name="year"
-                        value={product.year}
+                        id="country"
+                        name="country"
+                        value={product.country}
                         onChange={handleInputChange}
                         className="form-input"
                     />

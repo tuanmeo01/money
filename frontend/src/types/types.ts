@@ -11,6 +11,7 @@ export interface PerfumeResponse {
 export interface AddProduct {
     perfumeTitle: string;
     year: string;
+    country: string;
     type: string;
     perfumeGender: string;
     price: string;

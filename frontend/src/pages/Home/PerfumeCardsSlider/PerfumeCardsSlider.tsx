@@ -8,7 +8,7 @@ import { resetPerfumesState } from "../../../redux-toolkit/perfumes/perfumes-sli
 import PerfumeCardsSliderItem from "./PerfumeCardsSliderItem/PerfumeCardsSliderItem";
 import "./PerfumeCardsSlider.css";
 
-export const perfumesIds = [117, 118, 119, 120, 121, 122, 123, 124, 125, 126, 127, 128];
+export const perfumesIds = [140, 143, 146, 145, 144, 142, 141, 124, 125, 126, 127, 128];
 
 const PerfumeCardsSlider: FC = (): ReactElement => {
     const dispatch = useDispatch();
