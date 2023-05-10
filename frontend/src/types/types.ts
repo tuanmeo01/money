@@ -17,6 +17,15 @@ export interface AddProduct {
     price: string;
     file: string;
 }
+export interface EditProduct {
+    perfumeTitle: string;
+    year: string;
+    country: string;
+    type: string;
+    perfumeGender: string;
+    price: string;
+    file: string;
+}
 export interface FullPerfumeResponse extends PerfumeResponse {
     year: number;
     country: string;

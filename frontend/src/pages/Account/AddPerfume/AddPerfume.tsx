@@ -58,7 +58,6 @@ const AddPerfume: FC = (): ReactElement => {
         console.log(formData);
         try {
             const response = await RequestService.post(ADMIN_ADD, formData, true, "multipart/form-data");
-            // console.log(data.get("file"));
             console.log(response.data.filename);
             if (response) {
                 window.scrollTo(0, 0);

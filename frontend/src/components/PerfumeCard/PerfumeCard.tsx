@@ -35,7 +35,7 @@ const PerfumeCard: FC<PropsType> = ({ perfume, colSpan, edit, onOpenDelete }): R
                         edit
                             ? [
                                   <Link to={`${ACCOUNT_ADMIN_PERFUMES}/${perfume.id}`}>
-                                      <Button icon={<EditOutlined />}>Edit</Button>
+                                      <Button icon={<EditOutlined />}>Sửa</Button>
                                   </Link>
                               ]
                             : [

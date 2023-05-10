@@ -82,7 +82,6 @@ const Account: FC = (): ReactElement => {
                             <Route exact path={ACCOUNT_ADMIN_PERFUMES} component={PerfumeList} />
                             <Route exact path={`${ACCOUNT_ADMIN_PERFUMES}/:id`} component={EditPerfume} />
                             <Route exact path={ACCOUNT_ADMIN_ORDERS} component={OrdersList} />
-                            <Route exact path={`${ACCOUNT_ADMIN_PERFUMES}/:id`} component={EditPerfume} />
                             <Route exact path={ACCOUNT_ADMIN_USERS} component={UsersList} />
                             <Route exact path={`${ACCOUNT_ADMIN_USERS}/:id`} component={ManageUser} />
                         </>

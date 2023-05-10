@@ -1,24 +1,24 @@
-import React, { FC, ReactElement, useEffect } from "react";
+import { EditOutlined, UploadOutlined } from "@ant-design/icons";
+import { Button, Col, Form, Row, Upload, notification } from "antd";
+import { UploadChangeParam } from "antd/lib/upload/interface";
+import React, { FC, ReactElement, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
-import { EditOutlined, UploadOutlined } from "@ant-design/icons";
-import { Button, Col, Form, notification, Row, Upload } from "antd";
-import { UploadChangeParam } from "antd/lib/upload/interface";
+import RequestService from "../../../utils/request-service";
 
 import ContentTitle from "../../../components/ContentTitle/ContentTitle";
 import FormInput from "../../../components/FormInput/FormInput";
-import { selectPerfume } from "../../../redux-toolkit/perfume/perfume-selector";
+import IconButton from "../../../components/IconButton/IconButton";
+import { ADMIN_EDIT } from "../../../constants/urlConstants";
 import {
     selectAdminStateErrors,
     selectIsAdminStateLoading,
     selectIsPerfumeEdited
 } from "../../../redux-toolkit/admin/admin-selector";
-import { LoadingStatus } from "../../../types/types";
 import { resetAdminState, setAdminLoadingState } from "../../../redux-toolkit/admin/admin-slice";
+import { selectPerfume } from "../../../redux-toolkit/perfume/perfume-selector";
 import { fetchPerfume } from "../../../redux-toolkit/perfume/perfume-thunks";
-import IconButton from "../../../components/IconButton/IconButton";
-import EditPerfumeSelect from "./EditPerfumeSelect";
-import { updatePerfume } from "../../../redux-toolkit/admin/admin-thunks";
+import { EditProduct, LoadingStatus } from "../../../types/types";
 import "./EditPerfume.css";
 
 type EditPerfumeData = {
@@ -36,6 +36,17 @@ type EditPerfumeData = {
 };
 
 const EditPerfume: FC = (): ReactElement => {
+    const [product, setProduct] = useState<EditProduct>({
+        perfumeTitle: "",
+        year: "",
+        country: "",
+        type: "",
+        perfumeGender: "",
+        price: "",
+        file: ""
+    });
+    const [image, setImage] = useState<File | null>(null);
+
     const dispatch = useDispatch();
     const [form] = Form.useForm();
     const params = useParams<{ id: string }>();
@@ -70,17 +81,50 @@ const EditPerfume: FC = (): ReactElement => {
             dispatch(resetAdminState(LoadingStatus.SUCCESS));
         }
     }, [isPerfumeEdited]);
+    const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+        const { name, value } = event.target;
+        setProduct((prevProduct) => ({ ...prevProduct, [name]: value }));
+    };
+    const handleImageChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+        if (event.target.files && event.target.files[0]) {
+            setImage(event.target.files[0]);
+        }
+    };
+    const onFormSubmit = async (data: EditPerfumeData): Promise<void> => {
+        const formData = new FormData();
+        formData.append("perfumeTitle", product.perfumeTitle);
+        formData.append("country", product.country);
+        formData.append("type", product.type);
+        formData.append("perfumeGender", product.perfumeGender);
+        formData.append("price", product.price);
+        if (image) {
+            formData.append("file", image, image.name);
+        }
+        console.log(formData);
+        try {
+            const response = await RequestService.post(ADMIN_EDIT, formData, true, "multipart/form-data");
+            console.log(response.data.filename);
+            if (response) {
+                window.scrollTo(0, 0);
+                notification.success({
+                    message: "Thêm sản phẩm",
+                    description: "Thành công!"
+                });
+            }
+            return response.data;
+        } catch (error) {}
 
-    const onFormSubmit = (data: EditPerfumeData): void => {
-        const bodyFormData: FormData = new FormData();
-        // @ts-ignore
-        bodyFormData.append("file", { file });
-        bodyFormData.append(
-            "perfume",
-            new Blob([JSON.stringify({ ...data, id: perfumeData?.id })], { type: "application/json" })
-        );
-
-        dispatch(updatePerfume(bodyFormData));
+        // Reset form fields and image state
+        setProduct({
+            perfumeTitle: "",
+            year: "",
+            country: "",
+            type: "",
+            perfumeGender: "",
+            price: "",
+            file: ""
+        });
+        setImage(null);
     };
 
     const handleUpload = ({ file }: UploadChangeParam<any>): void => {
@@ -93,46 +137,86 @@ const EditPerfume: FC = (): ReactElement => {
             <Form onFinish={onFormSubmit} form={form}>
                 <Row gutter={32}>
                     <Col span={12}>
-                        <FormInput
-                            title={"Tên"}
-                            titleSpan={6}
-                            wrapperSpan={18}
-                            name={"perfumeTitle"}
-                            error={errors.perfumeTitleError}
-                            disabled={isLoading}
-                            placeholder={"Tên"}
-                        />
-                        <FormInput
-                            title={"Nhãn hiệu"}
-                            titleSpan={6}
-                            wrapperSpan={18}
-                            name={"perfumer"}
-                            error={errors.perfumerError}
-                            disabled={isLoading}
-                            placeholder={"Nhãn hiệu"}
-                        />
-                        <FormInput
-                            title={"Ngày sản xuất"}
-                            titleSpan={6}
-                            wrapperSpan={18}
-                            name={"year"}
-                            error={errors.yearError}
-                            disabled={isLoading}
-                            placeholder={"Ngày sản xuất"}
-                        />
+                        <div className="form-group">
+                            <label htmlFor="perfumeTitle" className="form-label">
+                                Tên bánh
+                            </label>
+                            <input
+                                type="text"
+                                id="perfumeTitle"
+                                name="perfumeTitle"
+                                value={product.perfumeTitle}
+                                onChange={handleInputChange}
+                                className="form-input"
+                            />
+                        </div>
+                        <div className="form-group">
+                            <label htmlFor="price" className="form-label">
+                                Giá
+                            </label>
+                            <input
+                                type="text"
+                                id="price"
+                                name="price"
+                                value={product.price}
+                                onChange={handleInputChange}
+                                className="form-input"
+                            />
+                        </div>
 
-                        <FormInput
-                            title={"Price"}
-                            titleSpan={6}
-                            wrapperSpan={18}
-                            name={"price"}
-                            error={errors.priceError}
-                            disabled={isLoading}
-                            placeholder={"Price"}
-                        />
-                        <Upload name={"file"} onChange={handleUpload} beforeUpload={() => false}>
-                            <Button icon={<UploadOutlined />}>Click to Upload</Button>
-                        </Upload>
+                        <div className="form-group">
+                            <label htmlFor="type" className="form-label">
+                                Chủ đề
+                            </label>
+                            <input
+                                type="text"
+                                id="type"
+                                name="type"
+                                value={product.type}
+                                onChange={handleInputChange}
+                                className="form-input"
+                            />
+                        </div>
+                        <div className="form-group">
+                            <label htmlFor="perfumeGender" className="form-label">
+                                Mô tả
+                            </label>
+                            <input
+                                type="text"
+                                id="perfumeGender"
+                                name="perfumeGender"
+                                value={product.perfumeGender}
+                                onChange={handleInputChange}
+                                className="form-input"
+                            />
+                        </div>
+                        <div className="form-group">
+                            <label htmlFor="country" className="form-label">
+                                Loại bánh
+                            </label>
+                            <input
+                                type="text"
+                                id="country"
+                                name="country"
+                                value={product.country}
+                                onChange={handleInputChange}
+                                className="form-input"
+                            />
+                        </div>
+
+                        <div className="form-group">
+                            <label htmlFor="image" className="form-label">
+                                Hình ảnh:
+                            </label>
+                            <input
+                                type="file"
+                                id="image"
+                                name="image"
+                                accept="image/*"
+                                onChange={handleImageChange}
+                                className="form-input"
+                            />
+                        </div>
                         <div className={"edit-perfume-image-wrapper"}>
                             <img
                                 className={"edit-perfume-image"}
@@ -142,7 +226,7 @@ const EditPerfume: FC = (): ReactElement => {
                         </div>
                     </Col>
                 </Row>
-                <IconButton title={"Edit"} icon={<EditOutlined />} disabled={isLoading} />
+                <IconButton title={"Save"} icon={<EditOutlined />} disabled={isLoading} />
             </Form>
         </div>
     );
