@@ -1,4 +1,4 @@
-import React, {FC, ReactElement, useEffect, useState} from "react";
+import React, { FC, ReactElement, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { CheckCircleOutlined, ShoppingOutlined } from "@ant-design/icons";
@@ -8,13 +8,13 @@ import ContentWrapper from "../../components/ContentWrapper/ContentWrapper";
 import ContentTitle from "../../components/ContentTitle/ContentTitle";
 import FormInput from "../../components/FormInput/FormInput";
 import { selectUserFromUserState } from "../../redux-toolkit/user/user-selector";
-import {selectCartItems, selectTotalPrice} from "../../redux-toolkit/cart/cart-selector";
+import { selectCartItems, selectTotalPrice } from "../../redux-toolkit/cart/cart-selector";
 import { selectIsOrderLoading, selectOrderErrors } from "../../redux-toolkit/order/order-selector";
 import { resetOrderState, setOrderLoadingState } from "../../redux-toolkit/order/order-slice";
 import { LoadingStatus } from "../../types/types";
 import { addOrder } from "../../redux-toolkit/order/order-thunks";
-import {resetCartState} from "../../redux-toolkit/cart/cart-slice";
-import {fetchCart} from "../../redux-toolkit/cart/cart-thunks";
+import { resetCartState } from "../../redux-toolkit/cart/cart-slice";
+import { fetchCart } from "../../redux-toolkit/cart/cart-thunks";
 import OrderItem from "./OrderItem/OrderItem";
 
 interface OrderFormData {
@@ -64,58 +64,58 @@ const Order: FC = (): ReactElement => {
     return (
         <ContentWrapper>
             <div style={{ textAlign: "center" }}>
-                <ContentTitle icon={<ShoppingOutlined />} title={"Ordering"} />
+                <ContentTitle icon={<ShoppingOutlined />} title={"Đơn hàng"} />
             </div>
             <Form onFinish={onFormSubmit} form={form}>
                 <Row gutter={32}>
                     <Col span={12}>
                         <FormInput
-                            title={"Name:"}
+                            title={"Tên:"}
                             titleSpan={5}
                             wrapperSpan={19}
                             name={"firstName"}
                             error={errors.firstNameError}
                             disabled={isOrderLoading}
-                            placeholder={"Enter the first name"}
+                            placeholder={"Nhập tên"}
                         />
                         <FormInput
-                            title={"Surname:"}
+                            title={"Họ:"}
                             titleSpan={5}
                             wrapperSpan={19}
                             name={"lastName"}
                             error={errors.lastNameError}
                             disabled={isOrderLoading}
-                            placeholder={"Enter the last name"}
+                            placeholder={"Nhập họ"}
                         />
                         <FormInput
-                            title={"City:"}
+                            title={"Thành phố:"}
                             titleSpan={5}
                             wrapperSpan={19}
                             name={"city"}
                             error={errors.cityError}
                             disabled={isOrderLoading}
-                            placeholder={"Enter the city"}
+                            placeholder={"Nhập thành phố"}
                         />
                         <FormInput
-                            title={"Address:"}
+                            title={"Địa chỉ:"}
                             titleSpan={5}
                             wrapperSpan={19}
                             name={"address"}
                             error={errors.addressError}
                             disabled={isOrderLoading}
-                            placeholder={"Enter the address"}
+                            placeholder={"Nhập địa chỉ"}
                         />
                         <FormInput
-                            title={"Index:"}
+                            title={"Số nhà:"}
                             titleSpan={5}
                             wrapperSpan={19}
                             name={"postIndex"}
                             error={errors.postIndexError}
                             disabled={isOrderLoading}
-                            placeholder={"Enter the index"}
+                            placeholder={"Nhập số nhà"}
                         />
                         <FormInput
-                            title={"Mobile:"}
+                            title={"Số điện thoại:"}
                             titleSpan={5}
                             wrapperSpan={19}
                             name={"phoneNumber"}
@@ -145,7 +145,7 @@ const Order: FC = (): ReactElement => {
                         </Row>
                         <Row gutter={[32, 32]} style={{ marginTop: 16 }}>
                             <Col span={12}>
-                                <Typography.Title level={3}>To pay : $ {totalPrice}.00</Typography.Title>
+                                <Typography.Title level={3}>Số tiền : {totalPrice}.000 vnđ</Typography.Title>
                             </Col>
                             <Col>
                                 <Button
@@ -155,7 +155,7 @@ const Order: FC = (): ReactElement => {
                                     size="large"
                                     icon={<CheckCircleOutlined />}
                                 >
-                                    Validate order
+                                    Đặt hàng
                                 </Button>
                             </Col>
                         </Row>

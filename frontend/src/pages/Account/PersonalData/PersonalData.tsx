@@ -46,72 +46,72 @@ const PersonalData: FC = (): ReactElement => {
 
     return (
         <>
-            <ContentTitle title={"My Account"} titleLevel={4} icon={<ProfileOutlined />} />
+            <ContentTitle title={"Thông tin tài khoản"} titleLevel={4} icon={<ProfileOutlined />} />
             <Row>
                 <Col span={12}>
                     <AccountDataItem title={"Email"} text={usersData?.email} />
-                    <AccountDataItem title={"First name"} text={usersData?.firstName} />
-                    <AccountDataItem title={"Last name"} text={usersData?.lastName} />
-                    <AccountDataItem title={"City"} text={usersData?.city} />
-                    <AccountDataItem title={"Address"} text={usersData?.address} />
-                    <AccountDataItem title={"Phone number"} text={usersData?.phoneNumber} />
-                    <AccountDataItem title={"Post index"} text={usersData?.postIndex} />
+                    <AccountDataItem title={"Tên"} text={usersData?.firstName} />
+                    <AccountDataItem title={"Họ"} text={usersData?.lastName} />
+                    <AccountDataItem title={"Thành phố"} text={usersData?.city} />
+                    <AccountDataItem title={"Địa chỉ"} text={usersData?.address} />
+                    <AccountDataItem title={"Số điện thoại"} text={usersData?.phoneNumber} />
+                    {/* <AccountDataItem title={"Post index"} text={usersData?.postIndex} /> */}
                     <Button
                         type={"primary"}
                         onClick={onClickShowUserData}
                         icon={showUserData ? <EyeInvisibleOutlined /> : <EditOutlined />}
                     >
-                        {showUserData ? "Hide" : "Edit"}
+                        {showUserData ? "Ẩn" : "Sửa"}
                     </Button>
                 </Col>
                 <Col span={12}>
                     {showUserData && (
                         <Form onFinish={onFormSubmit} form={form}>
                             <FormInput
-                                title={"First name:"}
+                                title={"Tên:"}
                                 titleSpan={6}
                                 wrapperSpan={18}
                                 name={"firstName"}
                                 error={firstNameError}
-                                placeholder={"First name"}
+                                placeholder={"Tên"}
                             />
                             <FormInput
-                                title={"Last name:"}
+                                title={"Họ:"}
                                 titleSpan={6}
                                 wrapperSpan={18}
                                 name={"lastName"}
                                 error={lastNameError}
-                                placeholder={"Last name"}
+                                placeholder={"Họ"}
                             />
                             <FormInput
-                                title={"City:"}
+                                title={"Thành phố:"}
                                 titleSpan={6}
                                 wrapperSpan={18}
                                 name={"city"}
-                                placeholder={"City"}
+                                placeholder={"Thành phố"}
                             />
                             <FormInput
-                                title={"Address:"}
+                                title={"Địa chỉ:"}
                                 titleSpan={6}
                                 wrapperSpan={18}
                                 name={"address"}
-                                placeholder={"Address"}
+                                placeholder={"Địa chỉ"}
                             />
                             <FormInput
-                                title={"Phone number:"}
+                                title={"Số điện thoại:"}
                                 titleSpan={6}
                                 wrapperSpan={18}
                                 name={"phoneNumber"}
-                                placeholder={"Phone number"}
+                                placeholder={"Số điện thoại"}
                             />
-                            <FormInput
+                            {/* <FormInput
                                 title={"Post index:"}
                                 titleSpan={6}
                                 wrapperSpan={18}
                                 name={"postIndex"}
                                 placeholder={"Post index"}
-                            />
-                            <IconButton title={"Save"} icon={<CheckOutlined />} />
+                            /> */}
+                            <IconButton title={"Lưu"} icon={<CheckOutlined />} />
                         </Form>
                     )}
                 </Col>

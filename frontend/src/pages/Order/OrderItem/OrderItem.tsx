@@ -18,9 +18,9 @@ const OrderItem: FC<PropsType> = ({ perfume, quantity }): ReactElement => {
             >
                 <div className={"menu-content"}>
                     <Typography.Text strong>{perfume.perfumer}</Typography.Text>
-                    <Typography.Text strong>{perfume.perfumeTitle}</Typography.Text>
-                    <Typography.Text strong>Price: $ {perfume.price}</Typography.Text>
-                    <Typography.Text strong>Quantity: {quantity}</Typography.Text>
+                    <Typography.Text strong>Tên sản phẩm: {perfume.perfumeTitle}</Typography.Text>
+                    <Typography.Text strong>Giá tiền: {perfume.price}.000 vnđ</Typography.Text>
+                    <Typography.Text strong>Số lượng: {quantity}</Typography.Text>
                 </div>
             </Card>
         </Col>

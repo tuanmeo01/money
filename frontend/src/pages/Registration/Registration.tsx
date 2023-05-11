@@ -45,7 +45,7 @@ const Registration: FC = (): ReactElement => {
 
     return (
         <ContentWrapper>
-            <ContentTitle icon={<UserAddOutlined />} title={"SIGN UP"} />
+            <ContentTitle icon={<UserAddOutlined />} title={"Đăng ký"} />
             <Row gutter={32}>
                 <Col span={12}>
                     <Form onFinish={onClickSignIn}>
@@ -60,44 +60,44 @@ const Registration: FC = (): ReactElement => {
                             placeholder={"E-mail"}
                         />
                         <FormInput
-                            title={"First name:"}
+                            title={"Tên:"}
                             icon={<UserOutlined />}
                             titleSpan={8}
                             wrapperSpan={16}
                             name={"firstName"}
                             error={errors.firstNameError}
-                            placeholder={"First name"}
+                            placeholder={"Tên"}
                         />
                         <FormInput
-                            title={"Last name:"}
+                            title={"Họ:"}
                             icon={<UserOutlined />}
                             titleSpan={8}
                             wrapperSpan={16}
                             name={"lastName"}
                             error={errors.lastNameError}
-                            placeholder={"Last name"}
+                            placeholder={"Họ"}
                         />
                         <FormInput
-                            title={"Password:"}
+                            title={"Mật khẩu:"}
                             icon={<LockOutlined />}
                             titleSpan={8}
                             wrapperSpan={16}
                             name={"password"}
                             error={errors.passwordError}
-                            placeholder={"Password"}
+                            placeholder={"Mật khẩu"}
                             inputPassword
                         />
                         <FormInput
-                            title={"Confirm password:"}
+                            title={"Xác nhận mật khẩu:"}
                             icon={<LockOutlined />}
                             titleSpan={8}
                             wrapperSpan={16}
                             name={"password2"}
                             error={errors.password2Error}
-                            placeholder={"Confirm password"}
+                            placeholder={"Xác nhận mật khẩu"}
                             inputPassword
                         />
-                        <IconButton disabled={isLoading} title={"Sign up"} icon={<UserAddOutlined />} />
+                        <IconButton disabled={isLoading} title={"Đăng ký"} icon={<UserAddOutlined />} />
                         <Form.Item
                             help={errors.captchaError}
                             validateStatus={errors.captchaError ? "error" : "validating"}

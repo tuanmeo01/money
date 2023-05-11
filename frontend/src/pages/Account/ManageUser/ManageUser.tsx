@@ -24,7 +24,10 @@ const ManageUser: FC = (): ReactElement => {
     const userOrders = useSelector(selectOrders);
     const totalElements = useSelector(selectTotalElements);
     const isUserLoading = useSelector(selectIsAdminStateLoading);
-    const handleTableChange = useTablePagination<OrderResponse, UserOrdersRequest>(fetchUserOrdersByEmail, userData.email!);
+    const handleTableChange = useTablePagination<OrderResponse, UserOrdersRequest>(
+        fetchUserOrdersByEmail,
+        userData.email!
+    );
     const { id, email, firstName, lastName, city, address, phoneNumber, postIndex, provider, roles } = userData;
 
     useEffect(() => {
@@ -48,24 +51,28 @@ const ManageUser: FC = (): ReactElement => {
                 <Spinner />
             ) : (
                 <>
-                    <ContentTitle title={`User: ${firstName} ${lastName}`} titleLevel={4} icon={<UserOutlined />} />
+                    <ContentTitle
+                        title={`Người dùng: ${firstName} ${lastName}`}
+                        titleLevel={4}
+                        icon={<UserOutlined />}
+                    />
                     <Row>
                         <Col span={24}>
                             <Card>
                                 <Row gutter={24}>
                                     <Col span={12}>
-                                        <AccountDataItem title={"User id"} text={id} />
+                                        <AccountDataItem title={"ID"} text={id} />
                                         <AccountDataItem title={"Email"} text={email} />
-                                        <AccountDataItem title={"Role"} text={roles} />
-                                        <AccountDataItem title={"First name"} text={firstName} />
-                                        <AccountDataItem title={"Last name"} text={lastName} />
+                                        <AccountDataItem title={"Quyền"} text={roles} />
+                                        <AccountDataItem title={"Tên"} text={firstName} />
+                                        <AccountDataItem title={"Họ"} text={lastName} />
                                     </Col>
                                     <Col span={8}>
-                                        <AccountDataItem title={"Provider"} text={provider} />
-                                        <AccountDataItem title={"City"} text={city} />
-                                        <AccountDataItem title={"Address"} text={address} />
-                                        <AccountDataItem title={"Phone number"} text={phoneNumber} />
-                                        <AccountDataItem title={"Post index"} text={postIndex} />
+                                        <AccountDataItem title={"Nhà cung cấp"} text={provider} />
+                                        <AccountDataItem title={"Thành phố"} text={city} />
+                                        <AccountDataItem title={"Địa chỉ"} text={address} />
+                                        <AccountDataItem title={"Số điện thoại"} text={phoneNumber} />
+                                        {/* <AccountDataItem title={"Post index"} text={postIndex} /> */}
                                     </Col>
                                 </Row>
                             </Card>
@@ -73,12 +80,12 @@ const ManageUser: FC = (): ReactElement => {
                                 <Col span={24}>
                                     {userOrders.length === 0 ? (
                                         <div style={{ textAlign: "center" }}>
-                                            <ContentTitle title={"No orders"} titleLevel={4} />
+                                            <ContentTitle title={"Không có đơn đặt hàng nào"} titleLevel={4} />
                                         </div>
                                     ) : (
                                         <>
                                             <div style={{ textAlign: "center" }}>
-                                                <ContentTitle title={"Orders"} titleLevel={4} />
+                                                <ContentTitle title={"Đơn hàng"} titleLevel={4} />
                                             </div>
                                             <Table
                                                 rowKey={"id"}
@@ -90,43 +97,43 @@ const ManageUser: FC = (): ReactElement => {
                                                 dataSource={userOrders}
                                                 columns={[
                                                     {
-                                                        title: "Order №",
+                                                        title: "Số đơn hàng",
                                                         dataIndex: "id",
                                                         key: "id"
                                                     },
                                                     {
-                                                        title: "Date",
+                                                        title: "Ngày",
                                                         dataIndex: "date",
                                                         key: "date"
                                                     },
                                                     {
-                                                        title: "City",
+                                                        title: "Thành phố",
                                                         dataIndex: "city",
                                                         key: "city"
                                                     },
                                                     {
-                                                        title: "Address",
+                                                        title: "Địa chỉ",
                                                         dataIndex: "address",
                                                         key: "address"
                                                     },
+                                                    // {
+                                                    //     title: "Post index",
+                                                    //     dataIndex: "postIndex",
+                                                    //     key: "postIndex"
+                                                    // },
                                                     {
-                                                        title: "Post index",
-                                                        dataIndex: "postIndex",
-                                                        key: "postIndex"
-                                                    },
-                                                    {
-                                                        title: "Order Summary",
+                                                        title: "Tổng cộng",
                                                         dataIndex: "totalPrice",
                                                         key: "totalPrice",
                                                         render: (_, order: OrderResponse) => `${order.totalPrice}.0 $`
                                                     },
                                                     {
-                                                        title: "Actions",
+                                                        title: "Hành động",
                                                         dataIndex: "actions",
                                                         key: "actions",
                                                         render: (_, order: OrderResponse) => (
                                                             <Link to={`${ACCOUNT_USER_ORDERS}/${order.id}`}>
-                                                                Show more
+                                                                Xem thêm
                                                             </Link>
                                                         )
                                                     }

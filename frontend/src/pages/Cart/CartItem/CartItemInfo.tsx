@@ -8,7 +8,6 @@ type PropsType = {
 };
 
 const CartItemInfo: FC<PropsType> = memo(({ perfume }): ReactElement => {
-
     return (
         <>
             <Col span={8} className={"cart-item-image"}>
@@ -16,8 +15,7 @@ const CartItemInfo: FC<PropsType> = memo(({ perfume }): ReactElement => {
             </Col>
             <Col span={8}>
                 <Typography.Title level={3}>{perfume.perfumer}</Typography.Title>
-                <Typography.Title level={5}>{perfume.perfumeTitle}</Typography.Title>
-                <Typography.Text strong>{perfume.volume} ml.</Typography.Text>
+                <Typography.Title level={5}> Tên sản phẩm: {perfume.perfumeTitle}</Typography.Title>
             </Col>
         </>
     );

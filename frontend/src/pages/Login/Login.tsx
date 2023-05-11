@@ -28,7 +28,7 @@ const Login: FC = (): ReactElement => {
 
     useEffect(() => {
         window.scrollTo(0, 0);
-        
+
         if (params.code) {
             dispatch(activateAccount(params.code));
         }
@@ -44,7 +44,7 @@ const Login: FC = (): ReactElement => {
 
     return (
         <ContentWrapper>
-            <ContentTitle icon={<LoginOutlined />} title={"SIGN IN"} />
+            <ContentTitle icon={<LoginOutlined />} title={"Đăng nhập"} />
             <Row gutter={32}>
                 <Col span={12}>
                     <Form onFinish={onClickSignIn}>
@@ -60,26 +60,19 @@ const Login: FC = (): ReactElement => {
                             placeholder={"E-mail"}
                         />
                         <FormInput
-                            title={"Password:"}
+                            title={"Mật khẩu:"}
                             icon={<LockOutlined />}
                             titleSpan={6}
                             wrapperSpan={18}
                             name={"password"}
-                            placeholder={"Password"}
+                            placeholder={"Mật khẩu"}
                             inputPassword
                         />
                         <Space align={"baseline"} size={13}>
-                            <IconButton title={"Sign in"} icon={<LoginOutlined />} />
-                            <Link to={FORGOT}>Forgot password?</Link>
+                            <IconButton title={"Đăng nhập"} icon={<LoginOutlined />} />
+                            <Link to={FORGOT}>Quên mật khẩu?</Link>
                         </Space>
                     </Form>
-                </Col>
-                <Col span={12}>
-                    <Space direction={"vertical"} className={"social-login-wrapper"}>
-                        <SocialButton socialNetwork={"google"} image={googleLogo} />
-                        <SocialButton socialNetwork={"facebook"} image={facebookLogo} />
-                        <SocialButton socialNetwork={"github"} image={githubLogo} />
-                    </Space>
                 </Col>
             </Row>
         </ContentWrapper>

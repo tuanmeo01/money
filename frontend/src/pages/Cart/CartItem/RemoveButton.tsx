@@ -8,10 +8,9 @@ type PropsType = {
 };
 
 const RemoveButton: FC<PropsType> = memo(({ perfumeId, deleteFromCart }): ReactElement => {
-
     return (
         <Button onClick={() => deleteFromCart(perfumeId)} icon={<CloseOutlined />}>
-            Remove
+            Xoá
         </Button>
     );
 });

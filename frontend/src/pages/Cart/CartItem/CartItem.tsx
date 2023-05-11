@@ -36,19 +36,14 @@ const CartItem: FC<PropsType> = ({
                 <Col span={8}>
                     <Row gutter={8}>
                         <Col span={12}>
-                            <InputNumber
-                                min={1}
-                                max={99}
-                                value={perfumeCount}
-                                onChange={handlePerfumesCount}
-                            />
+                            <InputNumber min={1} max={99} value={perfumeCount} onChange={handlePerfumesCount} />
                         </Col>
                         <Col span={12}>
                             <RemoveButton perfumeId={perfume.id} deleteFromCart={deleteFromCart} />
                         </Col>
                     </Row>
                     <Row style={{ marginTop: 16 }}>
-                        <Typography.Title level={4}>${perfume.price * perfumeCount}</Typography.Title>
+                        <Typography.Title level={4}>Giá {perfume.price * perfumeCount}.000 vnd</Typography.Title>
                     </Row>
                 </Col>
             </Row>

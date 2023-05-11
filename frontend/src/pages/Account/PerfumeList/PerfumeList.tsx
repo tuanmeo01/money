@@ -76,7 +76,7 @@ const PerfumeList: FC = (): ReactElement => {
 
     return (
         <div>
-            <ContentTitle title={"List of perfumes"} titleLevel={4} icon={<UnorderedListOutlined />} />
+            <ContentTitle title={"Danh sách sản phẩm"} titleLevel={4} icon={<UnorderedListOutlined />} />
             <Row>
                 <Col span={24}>
                     <Row>

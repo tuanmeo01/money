@@ -23,7 +23,7 @@ const OrdersList: FC = (): ReactElement => {
 
     return (
         <>
-            <ContentTitle title={"List of all orders"} titleLevel={4} icon={<ShoppingOutlined />} />
+            <ContentTitle title={"Danh sách order"} titleLevel={4} icon={<ShoppingOutlined />} />
             <OrdersTable orders={adminOrders} loading={isOrderLoading} fetchOrders={fetchAllUsersOrders} />
         </>
     );

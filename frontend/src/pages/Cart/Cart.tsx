@@ -72,7 +72,7 @@ const Cart: FC = (): ReactElement => {
             ) : (
                 <>
                     <div style={{ textAlign: "center" }}>
-                        <ContentTitle icon={<ShoppingCartOutlined />} title={"Cart"} />
+                        <ContentTitle icon={<ShoppingCartOutlined />} title={"Giả hàng"} />
                     </div>
                     <Row gutter={32}>
                         {perfumes.length === 0 ? (
@@ -102,7 +102,7 @@ const Cart: FC = (): ReactElement => {
                                         <Col span={12}>
                                             <Link to={ORDER}>
                                                 <Button type="primary" icon={<ShoppingOutlined />} size="large">
-                                                    Checkout
+                                                    Đặt hàng
                                                 </Button>
                                             </Link>
                                         </Col>

@@ -48,7 +48,7 @@ const ManageUserOrder: FC = (): ReactElement => {
             ) : (
                 <>
                     <div style={{ textAlign: "center" }}>
-                        <ContentTitle title={`Order #${id}`} titleLevel={4} icon={<ShoppingOutlined />} />
+                        <ContentTitle title={`Đơn hàng #${id}`} titleLevel={4} icon={<ShoppingOutlined />} />
                     </div>
                     <Row>
                         <Col span={24}>
@@ -56,21 +56,21 @@ const ManageUserOrder: FC = (): ReactElement => {
                                 <Row gutter={32}>
                                     <Col span={12}>
                                         <InfoCircleOutlined className={"manage-user-icon"} />
-                                        <ContentTitle title={"Customer information"} titleLevel={5} />
-                                        <AccountDataItem title={"First name"} text={firstName} />
-                                        <AccountDataItem title={"Last name"} text={lastName} />
-                                        <AccountDataItem title={"City"} text={city} />
-                                        <AccountDataItem title={"Address"} text={address} />
+                                        <ContentTitle title={"Thông tin khách hàng"} titleLevel={5} />
+                                        <AccountDataItem title={"Tên"} text={firstName} />
+                                        <AccountDataItem title={"Họ"} text={lastName} />
+                                        <AccountDataItem title={"Thành phố"} text={city} />
+                                        <AccountDataItem title={"Địa chỉ"} text={address} />
                                         <AccountDataItem title={"Email"} text={email} />
-                                        <AccountDataItem title={"Phone number"} text={phoneNumber} />
-                                        <AccountDataItem title={"Post index"} text={postIndex} />
+                                        <AccountDataItem title={"Số điện thoại"} text={phoneNumber} />
+                                        {/* <AccountDataItem title={"Post index"} text={postIndex} /> */}
                                     </Col>
                                     <Col span={12}>
                                         <InfoCircleOutlined className={"manage-user-icon"} />
-                                        <ContentTitle title={"Order information"} titleLevel={5} />
-                                        <AccountDataItem title={"Order id"} text={id} />
-                                        <AccountDataItem title={"Date"} text={date} />
-                                        <ContentTitle title={`Order summary: ${totalPrice}.0 $`} titleLevel={4} />
+                                        <ContentTitle title={"Thông tin đơn hàng"} titleLevel={5} />
+                                        <AccountDataItem title={"ID đơn hàng"} text={id} />
+                                        <AccountDataItem title={"Ngày"} text={date} />
+                                        <ContentTitle title={`Order summary: ${totalPrice}.0 `} titleLevel={4} />
                                     </Col>
                                 </Row>
                                 <Row style={{ marginTop: 16 }}>
@@ -81,38 +81,38 @@ const ManageUserOrder: FC = (): ReactElement => {
                                             dataSource={orderItems}
                                             columns={[
                                                 {
-                                                    title: "Perfume Id",
+                                                    title: "ID",
                                                     dataIndex: "id",
                                                     key: "id"
                                                 },
+                                                // {
+                                                //     title: "Perfume Brand",
+                                                //     dataIndex: "perfumer",
+                                                //     key: "perfumer",
+                                                //     render: (_, order: OrderItemResponse) => order.perfume.perfumer
+                                                // },
                                                 {
-                                                    title: "Perfume Brand",
-                                                    dataIndex: "perfumer",
-                                                    key: "perfumer",
-                                                    render: (_, order: OrderItemResponse) => order.perfume.perfumer
-                                                },
-                                                {
-                                                    title: "Perfume Name",
+                                                    title: "Tên sản phẩm",
                                                     dataIndex: "perfumeTitle",
                                                     key: "perfumeTitle",
                                                     render: (_, order: OrderItemResponse) => order.perfume.perfumeTitle
                                                 },
                                                 {
-                                                    title: "Quantity",
+                                                    title: "Số lượng",
                                                     dataIndex: "quantity",
                                                     key: "quantity"
                                                 },
                                                 {
-                                                    title: "Price",
+                                                    title: "Giá",
                                                     dataIndex: "price",
                                                     key: "price",
-                                                    render: (_, order: OrderItemResponse) => `${order.perfume.price}.0 $`
+                                                    render: (_, order: OrderItemResponse) => `${order.perfume.price}.0 `
                                                 },
                                                 {
-                                                    title: "Amount",
+                                                    title: "Tổng cộng",
                                                     dataIndex: "amount",
                                                     key: "amount",
-                                                    render: (_, order: OrderItemResponse) => `${order.amount}.0 $`
+                                                    render: (_, order: OrderItemResponse) => `${order.amount}.0 `
                                                 }
                                             ]}
                                         />
