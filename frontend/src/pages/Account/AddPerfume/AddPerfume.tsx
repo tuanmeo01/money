@@ -168,7 +168,7 @@ const AddPerfume: FC = (): ReactElement => {
                 </div>
 
                 <button type="submit" className="form-button">
-                    Save
+                    Lưu
                 </button>
             </form>
         </>

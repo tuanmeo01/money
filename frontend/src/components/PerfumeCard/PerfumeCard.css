@@ -7,6 +7,8 @@
 
 .perfume-card-image {
     margin-top: 24px;
+    width: -webkit-fill-available;
+    height: inherit;
 }
 
 .perfume-card-rate {

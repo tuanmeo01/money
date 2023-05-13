@@ -28,7 +28,7 @@ const ProductInfo: FC<PropsType> = ({ perfume, reviewsLength, addToCart }): Reac
                 <Row>
                     <Col className={"product-rate"} span={8}>
                         <Rate allowHalf disabled value={perfume?.perfumeRating} />
-                        <Typography.Text>{reviewsLength} reviews</Typography.Text>
+                        <Typography.Text>{reviewsLength} đánh giá</Typography.Text>
                     </Col>
                 </Row>
                 <Row>

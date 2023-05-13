@@ -5,7 +5,9 @@
 }
 
 .product-image {
-    height: 400px;
+    width: 100%;
+    height: fit-content;
+    margin:0 30px
 }
 
 .product-header .ant-typography {

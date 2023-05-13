@@ -22,7 +22,6 @@ import { EditProduct, LoadingStatus } from "../../../types/types";
 import "./EditPerfume.css";
 
 type EditPerfumeData = {
-    id: string;
     perfumeTitle: string;
     perfumer: string;
     year: string;
@@ -92,7 +91,6 @@ const EditPerfume: FC = (): ReactElement => {
             setImage(event.target.files[0]);
         }
     };
-
     const onFormSubmit = async (data: EditPerfumeData): Promise<void> => {
         const formData = new FormData();
         formData.append("perfumeTitle", product.perfumeTitle);
@@ -101,6 +99,7 @@ const EditPerfume: FC = (): ReactElement => {
         formData.append("perfumeGender", product.perfumeGender);
         formData.append("price", product.price);
         formData.append("id", params.id);
+
         if (image) {
             formData.append("file", image, image.name);
         }
@@ -111,7 +110,7 @@ const EditPerfume: FC = (): ReactElement => {
             if (response) {
                 window.scrollTo(0, 0);
                 notification.success({
-                    message: "Thêm sản phẩm",
+                    message: "sửa sản phẩm",
                     description: "Thành công!"
                 });
             }
@@ -155,7 +154,6 @@ const EditPerfume: FC = (): ReactElement => {
                                 className="form-input"
                             />
                         </div>
-
                         <div className="form-group">
                             <label htmlFor="price" className="form-label">
                                 Giá
@@ -232,7 +230,7 @@ const EditPerfume: FC = (): ReactElement => {
                         </div>
                     </Col>
                 </Row>
-                <IconButton title={"Save"} icon={<EditOutlined />} disabled={isLoading} />
+                <IconButton title={"Lưu"} icon={<EditOutlined />} disabled={isLoading} />
             </Form>
         </div>
     );
