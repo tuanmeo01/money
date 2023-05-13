@@ -18,6 +18,7 @@ export interface AddProduct {
     file: string;
 }
 export interface EditProduct {
+    id: string;
     perfumeTitle: string;
     year: string;
     country: string;

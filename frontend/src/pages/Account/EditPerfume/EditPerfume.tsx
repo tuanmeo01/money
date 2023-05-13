@@ -22,6 +22,7 @@ import { EditProduct, LoadingStatus } from "../../../types/types";
 import "./EditPerfume.css";
 
 type EditPerfumeData = {
+    id: string;
     perfumeTitle: string;
     perfumer: string;
     year: string;
@@ -43,7 +44,8 @@ const EditPerfume: FC = (): ReactElement => {
         type: "",
         perfumeGender: "",
         price: "",
-        file: ""
+        file: "",
+        id: ""
     });
     const [image, setImage] = useState<File | null>(null);
 
@@ -90,6 +92,7 @@ const EditPerfume: FC = (): ReactElement => {
             setImage(event.target.files[0]);
         }
     };
+
     const onFormSubmit = async (data: EditPerfumeData): Promise<void> => {
         const formData = new FormData();
         formData.append("perfumeTitle", product.perfumeTitle);
@@ -97,6 +100,7 @@ const EditPerfume: FC = (): ReactElement => {
         formData.append("type", product.type);
         formData.append("perfumeGender", product.perfumeGender);
         formData.append("price", product.price);
+        formData.append("id", params.id);
         if (image) {
             formData.append("file", image, image.name);
         }
@@ -122,7 +126,8 @@ const EditPerfume: FC = (): ReactElement => {
             type: "",
             perfumeGender: "",
             price: "",
-            file: ""
+            file: "",
+            id: ""
         });
         setImage(null);
     };
@@ -150,6 +155,7 @@ const EditPerfume: FC = (): ReactElement => {
                                 className="form-input"
                             />
                         </div>
+
                         <div className="form-group">
                             <label htmlFor="price" className="form-label">
                                 Giá
