@@ -28,7 +28,9 @@ export const registration = createAsyncThunk<{}, UserRegistration, { rejectValue
     async (userRegistrationData, thunkApi) => {
         try {
             await RequestService.post(REGISTRATION, userRegistrationData);
+            alert("Đăng ký thành công!");
         } catch (error) {
+            alert(error);
             return thunkApi.rejectWithValue(error.response.data);
         }
     }

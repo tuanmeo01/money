@@ -29,8 +29,10 @@ export const updateUserInfo = createAsyncThunk<UserResponse, UserEditRequest, { 
     async (request, thunkApi) => {
         try {
             const response = await RequestService.put(USERS_EDIT, request, true);
+            alert("Sửa thành công!");
             return response.data;
         } catch (error) {
+            alert(error);
             return thunkApi.rejectWithValue(error.response.data);
         }
     }
@@ -41,8 +43,12 @@ export const updateUserPassword = createAsyncThunk<string, UserResetPasswordRequ
     async (request, thunkApi) => {
         try {
             const response = await RequestService.put(AUTH_EDIT_PASSWORD, request, true);
+            alert("Sửa thành công!");
+
             return response.data;
         } catch (error) {
+            alert(error);
+
             return thunkApi.rejectWithValue(error.response.data);
         }
     }
@@ -52,15 +58,21 @@ export const addReviewToPerfume = createAsyncThunk<{}, ReviewRequest, { rejectVa
     "user/addReviewToPerfume",
     async (request, thunkApi) => {
         try {
+            alert("Thêm thành công!");
+
             return await RequestService.post(USERS_REVIEW, request);
         } catch (error) {
+            alert(error);
             return thunkApi.rejectWithValue(error.response.data);
         }
     }
 );
 
 // GraphQL query
-export const fetchUserInfoByQuery = createAsyncThunk<UserResponse, string>("user/fetchUserInfoByQuery", async (userId) => {
-    const response = await RequestService.post(USERS_GRAPHQL_INFO, { query: userByQuery(userId) }, true);
-    return response.data.data.user;
-});
+export const fetchUserInfoByQuery = createAsyncThunk<UserResponse, string>(
+    "user/fetchUserInfoByQuery",
+    async (userId) => {
+        const response = await RequestService.post(USERS_GRAPHQL_INFO, { query: userByQuery(userId) }, true);
+        return response.data.data.user;
+    }
+);
