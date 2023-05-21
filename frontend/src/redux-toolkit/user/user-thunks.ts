@@ -18,6 +18,7 @@ import {
     USERS_REVIEW
 } from "../../constants/urlConstants";
 import { userByQuery } from "../../utils/graphql-query/users-query";
+import { notification } from "antd";
 
 export const fetchUserInfo = createAsyncThunk<UserResponse>("user/fetchUserInfo", async () => {
     const response = await RequestService.get(USERS_INFO, true);
@@ -29,10 +30,17 @@ export const updateUserInfo = createAsyncThunk<UserResponse, UserEditRequest, { 
     async (request, thunkApi) => {
         try {
             const response = await RequestService.put(USERS_EDIT, request, true);
-            alert("Sửa thành công!");
+            window.scrollTo(0, 0);
+            notification.success({
+                message: "Thành công!",
+                description: "Cập nhật thông tin"
+            });
             return response.data;
         } catch (error) {
-            alert(error);
+            notification.error({
+                message: "Lỗi!",
+                description: "Cập nhật thông tin"
+            });
             return thunkApi.rejectWithValue(error.response.data);
         }
     }

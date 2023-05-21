@@ -6,6 +6,7 @@ import RequestService from "../../utils/request-service";
 import { AUTH_FORGOT, AUTH_LOGIN, AUTH_RESET, REGISTRATION, REGISTRATION_ACTIVATE } from "../../constants/urlConstants";
 import { ACCOUNT, LOGIN } from "../../constants/routeConstants";
 import { setUser } from "../user/user-slice";
+import { notification } from "antd";
 
 export const login = createAsyncThunk<
     UserResponse,
@@ -28,7 +29,11 @@ export const registration = createAsyncThunk<{}, UserRegistration, { rejectValue
     async (userRegistrationData, thunkApi) => {
         try {
             await RequestService.post(REGISTRATION, userRegistrationData);
-            alert("Đăng ký thành công!");
+            window.scrollTo(0, 0);
+            notification.success({
+                message: "Thành công!",
+                description: "Đăng ký thông tin"
+            });
         } catch (error) {
             alert(error);
             return thunkApi.rejectWithValue(error.response.data);

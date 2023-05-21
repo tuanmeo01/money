@@ -106,7 +106,6 @@ const EditPerfume: FC = (): ReactElement => {
         console.log(formData);
         try {
             const response = await RequestService.post(ADMIN_EDIT, formData, true, "multipart/form-data");
-            console.log(response.data.filename);
             if (response) {
                 window.scrollTo(0, 0);
                 notification.success({
@@ -115,7 +114,9 @@ const EditPerfume: FC = (): ReactElement => {
                 });
             }
             return response.data;
-        } catch (error) {}
+        } catch (error) {
+            console.log(error);
+        }
 
         // Reset form fields and image state
         setProduct({
@@ -149,7 +150,7 @@ const EditPerfume: FC = (): ReactElement => {
                                 type="text"
                                 id="perfumeTitle"
                                 name="perfumeTitle"
-                                value={product.perfumeTitle}
+                                value={perfumeData.perfumeTitle}
                                 onChange={handleInputChange}
                                 className="form-input"
                             />
@@ -162,7 +163,7 @@ const EditPerfume: FC = (): ReactElement => {
                                 type="text"
                                 id="price"
                                 name="price"
-                                value={product.price}
+                                value={perfumeData.price}
                                 onChange={handleInputChange}
                                 className="form-input"
                             />
@@ -176,7 +177,7 @@ const EditPerfume: FC = (): ReactElement => {
                                 type="text"
                                 id="type"
                                 name="type"
-                                value={product.type}
+                                value={perfumeData.type}
                                 onChange={handleInputChange}
                                 className="form-input"
                             />
@@ -189,7 +190,7 @@ const EditPerfume: FC = (): ReactElement => {
                                 type="text"
                                 id="perfumeGender"
                                 name="perfumeGender"
-                                value={product.perfumeGender}
+                                value={perfumeData.perfumeGender}
                                 onChange={handleInputChange}
                                 className="form-input"
                             />
@@ -202,7 +203,7 @@ const EditPerfume: FC = (): ReactElement => {
                                 type="text"
                                 id="country"
                                 name="country"
-                                value={product.country}
+                                value={perfumeData.country}
                                 onChange={handleInputChange}
                                 className="form-input"
                             />
