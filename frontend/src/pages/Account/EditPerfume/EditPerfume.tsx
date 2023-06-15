@@ -1,5 +1,5 @@
-import { EditOutlined, UploadOutlined } from "@ant-design/icons";
-import { Button, Col, Form, Row, Upload, notification } from "antd";
+import { EditOutlined } from "@ant-design/icons";
+import { Col, Form, Row, notification } from "antd";
 import { UploadChangeParam } from "antd/lib/upload/interface";
 import React, { FC, ReactElement, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
@@ -7,7 +7,6 @@ import { useParams } from "react-router-dom";
 import RequestService from "../../../utils/request-service";
 
 import ContentTitle from "../../../components/ContentTitle/ContentTitle";
-import FormInput from "../../../components/FormInput/FormInput";
 import IconButton from "../../../components/IconButton/IconButton";
 import { ADMIN_EDIT } from "../../../constants/urlConstants";
 import {
@@ -150,8 +149,8 @@ const EditPerfume: FC = (): ReactElement => {
                                 type="text"
                                 id="perfumeTitle"
                                 name="perfumeTitle"
-                                value={perfumeData.perfumeTitle}
-                                onChange={handleInputChange}
+                                defaultValue={perfumeData?.perfumeTitle}
+                                onBlur={handleInputChange}
                                 className="form-input"
                             />
                         </div>
@@ -163,8 +162,9 @@ const EditPerfume: FC = (): ReactElement => {
                                 type="text"
                                 id="price"
                                 name="price"
-                                value={perfumeData.price}
-                                onChange={handleInputChange}
+                                // value={perfumeData?.price}
+                                defaultValue={perfumeData?.price}
+                                onBlur={handleInputChange}
                                 className="form-input"
                             />
                         </div>
@@ -177,8 +177,8 @@ const EditPerfume: FC = (): ReactElement => {
                                 type="text"
                                 id="type"
                                 name="type"
-                                value={perfumeData.type}
-                                onChange={handleInputChange}
+                                defaultValue={perfumeData?.type}
+                                onBlur={handleInputChange}
                                 className="form-input"
                             />
                         </div>
@@ -188,10 +188,10 @@ const EditPerfume: FC = (): ReactElement => {
                             </label>
                             <input
                                 type="text"
-                                id="perfumeGender"
-                                name="perfumeGender"
-                                value={perfumeData.perfumeGender}
-                                onChange={handleInputChange}
+                                id="perfumeTitle"
+                                name="perfumeTitle"
+                                defaultValue={perfumeData?.perfumeTitle}
+                                onBlur={handleInputChange}
                                 className="form-input"
                             />
                         </div>
@@ -203,8 +203,8 @@ const EditPerfume: FC = (): ReactElement => {
                                 type="text"
                                 id="country"
                                 name="country"
-                                value={perfumeData.country}
-                                onChange={handleInputChange}
+                                defaultValue={perfumeData?.country}
+                                onBlur={handleInputChange}
                                 className="form-input"
                             />
                         </div>

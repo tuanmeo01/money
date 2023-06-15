@@ -23,7 +23,7 @@ interface OrderFormData {
     city: string;
     address: string;
     phoneNumber: string;
-    postIndex: string;
+    postIndex: "1212112";
     email: string;
 }
 
