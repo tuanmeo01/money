@@ -105,7 +105,7 @@ const Order: FC = (): ReactElement => {
                             disabled={isOrderLoading}
                             placeholder={"Nhập địa chỉ"}
                         />
-                        <FormInput
+                        {/* <FormInput
                             title={"Số nhà:"}
                             titleSpan={5}
                             wrapperSpan={19}
@@ -113,7 +113,7 @@ const Order: FC = (): ReactElement => {
                             error={errors.postIndexError}
                             disabled={isOrderLoading}
                             placeholder={"Nhập số nhà"}
-                        />
+                        /> */}
                         <FormInput
                             title={"Số điện thoại:"}
                             titleSpan={5}

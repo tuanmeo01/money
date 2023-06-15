@@ -63,7 +63,7 @@ const OrdersTable: FC<PropsType> = ({ orders, loading, fetchOrders }): ReactElem
                     dataIndex: "operations",
                     key: "operations",
                     render: (_, order: OrderResponse) => (
-                        <Link to={`${ACCOUNT_USER_ORDERS}/${order.id}`}>Show more</Link>
+                        <Link to={`${ACCOUNT_USER_ORDERS}/${order.id}`}>Xem chi tiết</Link>
                     )
                 }
             ]}

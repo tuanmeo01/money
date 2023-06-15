@@ -17,8 +17,8 @@ const OrderFinalize: FC = (): ReactElement => {
     return (
         <ContentWrapper>
             <div style={{ textAlign: "center" }}>
-                <Typography.Title level={2}>Thank you for the order!</Typography.Title>
-                <Typography.Text>Your order number is: {order.id}</Typography.Text>
+                <Typography.Title level={2}>Cảm ơn đã đặt hàng!</Typography.Title>
+                <Typography.Text>Đơn hàng số: {order.id}</Typography.Text>
             </div>
         </ContentWrapper>
     );

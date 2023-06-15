@@ -70,7 +70,7 @@ const ManageUserOrder: FC = (): ReactElement => {
                                         <ContentTitle title={"Thông tin đơn hàng"} titleLevel={5} />
                                         <AccountDataItem title={"ID đơn hàng"} text={id} />
                                         <AccountDataItem title={"Ngày"} text={date} />
-                                        <ContentTitle title={`Order summary: ${totalPrice}.0 `} titleLevel={4} />
+                                        <ContentTitle title={`Tổng tiền: ${totalPrice}.000 vnđ `} titleLevel={4} />
                                     </Col>
                                 </Row>
                                 <Row style={{ marginTop: 16 }}>
@@ -106,13 +106,14 @@ const ManageUserOrder: FC = (): ReactElement => {
                                                     title: "Giá",
                                                     dataIndex: "price",
                                                     key: "price",
-                                                    render: (_, order: OrderItemResponse) => `${order.perfume.price}.0 `
+                                                    render: (_, order: OrderItemResponse) =>
+                                                        `${order.perfume.price}.000 vnđ `
                                                 },
                                                 {
                                                     title: "Tổng cộng",
                                                     dataIndex: "amount",
                                                     key: "amount",
-                                                    render: (_, order: OrderItemResponse) => `${order.amount}.0 `
+                                                    render: (_, order: OrderItemResponse) => `${order.amount}.000 vnđ `
                                                 }
                                             ]}
                                         />

@@ -33,7 +33,5 @@ public class OrderRequest {
     @NotBlank(message = "Phone number cannot be empty")
     private String phoneNumber;
 
-    @NotNull(message = "Post index cannot be empty")
-    @Min(value = 5, message = "Post index must contain 5 digits")
     private Integer postIndex;
 }
