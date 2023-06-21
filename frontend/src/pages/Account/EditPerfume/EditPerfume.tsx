@@ -188,9 +188,9 @@ const EditPerfume: FC = (): ReactElement => {
                             </label>
                             <input
                                 type="text"
-                                id="perfumeTitle"
-                                name="perfumeTitle"
-                                defaultValue={perfumeData?.perfumeTitle}
+                                id="perfumeGender"
+                                name="perfumeGender"
+                                defaultValue={perfumeData?.perfumeGender}
                                 onBlur={handleInputChange}
                                 className="form-input"
                             />

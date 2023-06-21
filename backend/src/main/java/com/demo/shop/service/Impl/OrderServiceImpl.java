@@ -72,6 +72,8 @@ public class OrderServiceImpl implements OrderService {
         }
         order.getOrderItems().addAll(orderItemList);
         order.setTotalPrice(validOrder.getTotalPrice());
+        System.out.println("-----------------------------------");
+        System.out.println(validOrder.getTotalPrice());
         order.setFirstName(validOrder.getFirstName());
         order.setLastName(validOrder.getLastName());
         order.setCity(validOrder.getCity());

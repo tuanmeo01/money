@@ -25,6 +25,7 @@ interface OrderFormData {
     phoneNumber: string;
     postIndex: "1212112";
     email: string;
+    // totalPrice: 100;
 }
 
 const Order: FC = (): ReactElement => {
